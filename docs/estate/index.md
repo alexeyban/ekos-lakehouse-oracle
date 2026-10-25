@@ -46,7 +46,7 @@ The source model's review (RFC 0213) as of this generation:
 | scope | 903 | 0 | valid (token:Ann) |
 | pii | 196 | 0 | valid (token:Ann) |
 | conflicts | 429 | 195 | none |
-| identity | 25 | 25 | none |
+| identity | 1 | 1 | none |
 | write-behaviour | 850 | 0 | valid (token:Ann) |
 | glossary | 0 | 0 | valid (token:Ann) |
 
@@ -64,6 +64,6 @@ No data value appears in this documentation: column profiles contribute counts o
 
 ## Provenance
 
-- ledger committed: 2026-10-25 09:49 UTC
+- ledger committed: 2026-10-25 16:56 UTC
 - source revision: 3355eb5fc940
 - generator: EKOS 1.1.0 (estate v1)

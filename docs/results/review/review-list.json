@@ -38,10 +38,10 @@
       "subject": "conflicts"
     },
     {
-      "blocking": 25,
+      "blocking": 1,
       "decided": 0,
-      "digest": "74a694bdce93769a02d25dfb496cc8577481b6b6faeb222ad41ccffe2c5a1c8a",
-      "items": 25,
+      "digest": "3ec7634ac4a5d355ff58e8254c10674545d539196c601cf7fa708dab13f7da81",
+      "items": 1,
       "outdated": 0,
       "signoff": {
         "state": "none"

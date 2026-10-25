@@ -1,7 +1,7 @@
 {
   "steps": [
     {
-      "detail": "fresh — ledger reflects the source as of 2026-10-25 09:49 UTC (git 3355eb5)",
+      "detail": "fresh — ledger reflects the source as of 2026-10-25 16:56 UTC (git 3355eb5)",
       "id": "analyse",
       "n": 1,
       "state": "done",
@@ -15,7 +15,7 @@
       "title": "Documentation"
     },
     {
-      "detail": "4 of 6 subjects signed, 220 blocking item(s)",
+      "detail": "4 of 6 subjects signed, 196 blocking item(s)",
       "id": "review",
       "n": 3,
       "state": "partial",
@@ -58,10 +58,10 @@
           "subject": "conflicts"
         },
         {
-          "blocking": 25,
+          "blocking": 1,
           "decided": 0,
-          "digest": "74a694bdce93769a02d25dfb496cc8577481b6b6faeb222ad41ccffe2c5a1c8a",
-          "items": 25,
+          "digest": "3ec7634ac4a5d355ff58e8254c10674545d539196c601cf7fa708dab13f7da81",
+          "items": 1,
           "outdated": 0,
           "signoff": {
             "state": "none"

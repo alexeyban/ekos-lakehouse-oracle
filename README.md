@@ -10,9 +10,9 @@ and have a person review and sign off the source model before anything is built 
 
 | Step | | State in this demo |
 |---|---|---|
-| 1 | Analyse sources — code, docs site, live Oracle catalog into one ledger | done |
+| 1 | Analyse sources — code, docs site, live Oracle catalog into one ledger, from the console's Sources tab | done (census = compiled) |
 | 2 | Documentation — [**1,060 generated pages**](docs/estate/index.md) | done (in this repository) |
-| 3 | Review and sign-off — six subjects, sign-off bound to a digest | 4 of 6 signed; 195 conflicts and 25 identity matches await a person |
+| 3 | Review and sign-off — six subjects, sign-off bound to a digest | 4 of 6 signed; 195 conflicts and 1 identity match await a person |
 | 4–7 | Requirements, extraction, bronze/silver, marts | blocked until step 3 is complete |
 
 ## Start here

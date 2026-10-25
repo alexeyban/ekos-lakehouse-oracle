@@ -1,6 +1,16 @@
 # 2. Step 1 — Analyse the sources
 
+**In the console** (no terminal): create the project from the iDempiere checkout, open its **Sources** tab, add the
+docs repository and the Oracle database (connect string, read-only user, password — kept in the server's keychain,
+never in `ekos.toml` — schemas, profile tier, the iDempiere dictionary), **Test connection**, then **Init & compile**.
+Run from an empty project in a browser: the analysis took 32 min 33 s, and afterwards the test put the database's
+census next to what was compiled — tables 903 = 903, views 160 = 160, routines 62 = 62, triggers 0 = 0 — and step 1
+showed **done**.
+
+**From a terminal**, the same:
+
 ```bash
+ekos --project idemdocs database test idempiere-db    # read-only connection, census vs compiled
 ekos --project idemdocs build && ekos --project idemdocs recover && ekos --project idemdocs resolve \
   && ekos --project idemdocs compile && ekos --project idemdocs commit
 ```
