@@ -1,0 +1,26 @@
+{"stage":"run","msg":"started","version":"1.1.0","cmd":"build","t_ms":0}
+{"stage":"observe","msg":"unchanged (cached)","connectors":10,"source":"idempiere","cmd":"build","t_ms":1805}
+{"stage":"observe","msg":"unchanged (cached)","connectors":10,"source":"docs","cmd":"build","t_ms":1832}
+{"stage":"oracle.catalog","msg":"read DBA_OBJECTS","ms":146,"owner":"ADEMPIERE","query":"objects","rows":3280,"cmd":"build","t_ms":2220}
+{"stage":"oracle.catalog","msg":"read DBA_TABLES","ms":103,"owner":"ADEMPIERE","query":"tables","rows":903,"cmd":"build","t_ms":2324}
+{"stage":"oracle.catalog","msg":"read DBA_TAB_COLUMNS","ms":532,"owner":"ADEMPIERE","query":"columns","rows":30458,"cmd":"build","t_ms":2857}
+{"stage":"oracle.catalog","msg":"read DBA_CONSTRAINTS","ms":2641,"owner":"ADEMPIERE","query":"constraints","rows":18444,"cmd":"build","t_ms":5498}
+{"stage":"oracle.catalog","msg":"read DBA_CONS_COLUMNS","ms":197,"owner":"ADEMPIERE","query":"constraint_columns","rows":18697,"cmd":"build","t_ms":5696}
+{"stage":"oracle.catalog","msg":"read DBA_INDEXES","ms":87,"owner":"ADEMPIERE","query":"indexes","rows":2109,"cmd":"build","t_ms":5783}
+{"stage":"oracle.catalog","msg":"read DBA_IND_COLUMNS","ms":57,"owner":"ADEMPIERE","query":"index_columns","rows":2624,"cmd":"build","t_ms":5841}
+{"stage":"oracle.catalog","msg":"read DBA_VIEWS","ms":97,"owner":"ADEMPIERE","query":"views","rows":160,"cmd":"build","t_ms":5939}
+{"stage":"oracle.catalog","msg":"read DBA_MVIEWS","ms":51,"owner":"ADEMPIERE","query":"mviews","rows":0,"cmd":"build","t_ms":5991}
+{"stage":"oracle.catalog","msg":"read DBA_SEQUENCES","ms":9,"owner":"ADEMPIERE","query":"sequences","rows":0,"cmd":"build","t_ms":6000}
+{"stage":"oracle.catalog","msg":"read DBA_SOURCE","ms":194,"owner":"ADEMPIERE","query":"source","rows":4753,"cmd":"build","t_ms":6194}
+{"stage":"oracle.catalog","msg":"read DBA_TRIGGERS","ms":103,"owner":"ADEMPIERE","query":"triggers","rows":0,"cmd":"build","t_ms":6298}
+{"stage":"oracle.catalog","msg":"read DBA_SYNONYMS","ms":48,"owner":"ADEMPIERE","query":"synonyms","rows":0,"cmd":"build","t_ms":6346}
+{"stage":"oracle.catalog","msg":"read DBA_TAB_COMMENTS","ms":173,"owner":"ADEMPIERE","query":"table_comments","rows":42,"cmd":"build","t_ms":6520}
+{"stage":"oracle.catalog","msg":"read DBA_COL_COMMENTS","ms":85,"owner":"ADEMPIERE","query":"column_comments","rows":111,"cmd":"build","t_ms":6606}
+{"stage":"oracle.catalog","msg":"read DBA_TAB_COL_STATISTICS","ms":592,"owner":"ADEMPIERE","query":"column_statistics","rows":18528,"cmd":"build","t_ms":7198}
+{"stage":"oracle.catalog","msg":"reconciled against DBA_OBJECTS","kinds":13,"mismatches":0,"objects":10613,"owner":"ADEMPIERE","cmd":"build","t_ms":7360}
+{"stage":"oracle.profile","msg":"profiled","columns_measured":18521,"ms":7743,"owner":"ADEMPIERE","tables_failed":0,"tables_profiled":903,"tables_skipped":0,"tier":"p2","values_suppressed":32,"cmd":"build","t_ms":15123}
+{"stage":"oracle.dictionary","msg":"read AD_Table flags","ms":5,"owner":"ADEMPIERE","tables":1056,"cmd":"build","t_ms":15156}
+{"stage":"observe","msg":"read database","artifacts":10615,"database":"idempiere-db","ms":14218,"cmd":"build","t_ms":16051}
+{"stage":"build","msg":"complete","connectors_cached":20,"connectors_scanned":1,"files_cached":0,"files_new":0,"ledger_objects":159712,"snapshot":"20261025T093543Z","cmd":"build","t_ms":16270}
+{"stage":"llm","msg":"calls","count":0,"cache_hits":0,"embeddings":0,"cmd":"build","t_ms":16410}
+{"stage":"run","msg":"finished","ok":true,"ms":16410,"warnings":0,"cmd":"build","t_ms":16410}

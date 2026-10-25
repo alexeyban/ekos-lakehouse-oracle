@@ -1,0 +1,54 @@
+# The EKOS project behind this demo: iDempiere's code, its documentation site and the Oracle database
+# the iDempiere 12 seed creates (testbed/). Paths are placeholders: set them to your checkouts.
+#
+#   ekos project add idemdocs --source <idempiere>      # creates <EKOS_HOME>/data/default/idemdocs
+#   then replace that project's ekos.toml with this file
+
+[workspace]
+root = "<idempiere>"                       # git clone https://github.com/idempiere/idempiere (3355eb5)
+log-level = "info"
+
+[observe]
+paths = ["."]
+git-max-commits = 20000                    # iDempiere's history is long; the default reads 500
+ignore-patterns = [".ekos", ".git", "target", "node_modules"]
+
+# iDempiere ships one script tree per engine; the directory says which.
+[recover.sql]
+default-dialect = "oracle"
+[[recover.sql.dialect-rules]]
+path-glob = "**/oracle/**"
+dialect = "oracle"
+[[recover.sql.dialect-rules]]
+path-glob = "**/postgresql/**"
+dialect = "postgres"
+
+# Ticket keys in commit messages and migration script names (RFC 0219).
+[tickets]
+keys = ["IDEMPIERE", "TICKET"]
+
+[[sources]]
+name = "idempiere"
+kind = "git"
+path = "<idempiere>"
+
+[[sources]]
+name = "docs"
+kind = "git"
+path = "<idempiere-docs>"                  # git clone https://github.com/idempiere/idempiere.github.io (3959ece)
+
+# The live database (RFC 0211). Only the variable's NAME is here, never a password.
+[[databases]]
+name = "idempiere-db"
+kind = "oracle"
+connect = "localhost:51521/XEPDB1"
+user = "ekos_ro"
+password-env = "EKOS_ORACLE_PASSWORD"
+owners = ["ADEMPIERE"]
+profile = "p2"                             # counts only on the published side; see docs/walkthrough
+dictionary = "idempiere"                   # AD_Table flags (deleteable, change log)
+
+# RFC 0214: the schema comments and routines in this database come from iDempiere's GPL-2.0
+# migration scripts. The docs site has no licence file, so its text stays out of generated docs.
+[docs-estate]
+licences = { "idempiere-db" = "GPL-2.0" }

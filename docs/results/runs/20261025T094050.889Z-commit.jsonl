@@ -1,0 +1,6 @@
+{"stage":"run","msg":"started","version":"1.1.0","cmd":"commit","t_ms":0}
+{"stage":"ledger.commit","msg":"facts written","conflicts":446,"evidence":204703,"objects":43,"objects_skipped":144030,"relationships":0,"cmd":"commit","t_ms":493918}
+{"stage":"write.behaviour","msg":"tables classified","tables":903,"update":{"no_updated_column":14,"po_only":737,"raw_sql_sets_updated":8,"raw_sql_skips_updated":144},"delete":{"deleted_by_app":107,"deleted_by_cascade":298,"deleted_by_users":754,"never_deleted_in_code":9,"purged":12,"soft_delete_only":57},"change_log":{"not_recorded":180,"recorded":713,"unknown":10},"dictionary":true,"cmd":"commit","t_ms":493919}
+{"stage":"tickets.link","msg":"ticket links","tickets":4606,"links":{"JavaMethod":272,"JavaType":154,"SchemaChangeSet":3074,"Section":1743},"cited_without_commits":55,"cmd":"commit","t_ms":493919}
+{"stage":"llm","msg":"calls","count":0,"cache_hits":0,"embeddings":0,"cmd":"commit","t_ms":495003}
+{"stage":"run","msg":"finished","ok":true,"ms":495003,"warnings":0,"cmd":"commit","t_ms":495003}
