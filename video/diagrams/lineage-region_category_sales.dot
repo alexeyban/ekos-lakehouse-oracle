@@ -1,0 +1,42 @@
+digraph L {
+label="Column lineage of gold_sales.region_category_sales: source → bronze → silver → gold"; labelloc=t;
+fontsize=24; fontname="DejaVu Sans Bold"; rankdir=LR; bgcolor="white"; nodesep=0.2; ranksep=0.8;
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=17, color="#6b7280"];
+edge [fontname="DejaVu Sans", fontsize=14, color="#6d28d9", fontcolor="#4b5563"];
+subgraph cluster_source { label="source"; fontsize=18; color="#d1d5db"; style=rounded;
+n3 [label="C_ORDERLINE\nLINENETAMT", fillcolor="#e0f2fe"];
+n7 [label="C_REGION\nNAME", fillcolor="#e0f2fe"];
+n11 [label="M_PRODUCT_CATEGORY\nNAME", fillcolor="#e0f2fe"];
+n15 [label="C_ORDER\nDATEORDERED", fillcolor="#e0f2fe"];
+}
+subgraph cluster_bronze { label="bronze"; fontsize=18; color="#d1d5db"; style=rounded;
+n2 [label="C_ORDERLINE\nLINENETAMT", fillcolor="#fde68a"];
+n6 [label="C_REGION\nNAME", fillcolor="#fde68a"];
+n10 [label="M_PRODUCT_CATEGORY\nNAME", fillcolor="#fde68a"];
+n14 [label="C_ORDER\nDATEORDERED", fillcolor="#fde68a"];
+}
+subgraph cluster_silver { label="silver"; fontsize=18; color="#d1d5db"; style=rounded;
+n1 [label="ADEMPIERE__C_ORDERLINE\nLINENETAMT", fillcolor="#e5e7eb"];
+n5 [label="ADEMPIERE__C_REGION\nNAME", fillcolor="#e5e7eb"];
+n9 [label="ADEMPIERE__M_PRODUCT_CATEGORY\nNAME", fillcolor="#e5e7eb"];
+n13 [label="ADEMPIERE__C_ORDER\nDATEORDERED", fillcolor="#e5e7eb"];
+}
+subgraph cluster_gold { label="gold"; fontsize=18; color="#d1d5db"; style=rounded;
+n0 [label="gold__region_category_sales\nnet_sales", fillcolor="#fef3c7"];
+n4 [label="gold__region_category_sales\nregion", fillcolor="#fef3c7"];
+n8 [label="gold__region_category_sales\nproduct_category", fillcolor="#fef3c7"];
+n12 [label="gold__region_category_sales\nmonth", fillcolor="#fef3c7"];
+}
+n1 -> n0 [label="SUM('C_ORDERLINE'.'LINENETAMT')"];
+n2 -> n1 [label=""];
+n3 -> n2 [label="CAST('LINENETAMT' AS decimal(38,2)) [na…"];
+n5 -> n4 [label="'C_REGION'.'NAME'"];
+n6 -> n5 [label=""];
+n7 -> n6 [label=""];
+n9 -> n8 [label="'M_PRODUCT_CATEGORY'.'NAME'"];
+n10 -> n9 [label=""];
+n11 -> n10 [label=""];
+n13 -> n12 [label="DATE_TRUNC('month', 'C_ORDER'.'DATEORDE…"];
+n14 -> n13 [label=""];
+n15 -> n14 [label="CAST('DATEORDERED' AS timestamp(6)) [wi…"];
+}

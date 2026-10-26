@@ -13,6 +13,7 @@ below comes from a measured run on one 15 GB laptop.
 
 | | |
 |---|---|
+| **[The video](video/README.md)** ([watch](https://github.com/alexeyban/ekos-lakehouse-oracle/releases/tag/video-2026-10-27), 7:52) | a second project from analysis to three reconciled gold marts, narrated, with every console screen, the source / ER / lineage diagrams, a recording runbook and the run log |
 | **[The book](book/index.md)** ([PDF](book/demo-book.pdf)) | the seven steps from the console: each screen, the run log behind it, what happens, what the operator gets — generated from the product |
 | **[The wiki](https://github.com/alexeyban/ekos-lakehouse-oracle/wiki)** | the 1,060 documentation pages EKOS generated and published from the console (step 2), and the book |
 | **[The presentation](presentation/index.html)** ([PDF](presentation/ekos-idempiere.pdf)) | 13 slides |
@@ -46,8 +47,10 @@ the product's and was left as it is. Details: [docs/results/steps-4-to-7.md](doc
 | [`docs/guide/`](docs/guide/operator-workflow.md) | the operator guide (from EKOS) |
 | [`docs/results/`](docs/results/README.md) | measurements and exports |
 | [`pipeline/`](pipeline/) | **the generated pipeline**: bronze extraction SQL for 849 tables, the dbt-trino project (silver models and tests from the source model, the four gold marts), the Dagster definitions, the mart requirements, the deployed plan (`lakehouse.lock.json`) and its [history](pipeline/HISTORY.md) |
+| [`pipeline-sales/`](pipeline-sales/) | the video's project (`idemsales`, prefix `bronze_sales_`): 33 bronze tables, silver in `silver_sales_adempiere`, three marts in `gold_sales`, and its [history](pipeline-sales/HISTORY.md) |
+| [`video/`](video/README.md) | the video demo: screenshots, diagrams, narration, runbook, run log, the scripts that made them |
 | [`project/ekos.toml`](project/ekos.toml) | the EKOS project: sources, the database, the lakehouse settings |
-| [`src/EKOS`](https://github.com/alexeyban/EKOS/tree/525c782), [`src/ekos-lakehouse`](https://github.com/alexeyban/ekos-lakehouse/tree/7a6eb94) | **the code**, as submodules at the exact commits this ran |
+| [`src/EKOS`](https://github.com/alexeyban/EKOS/tree/0059daa), [`src/ekos-lakehouse`](https://github.com/alexeyban/ekos-lakehouse/tree/775311f) | **the code**, as submodules: the commits of the video run (RFC 0231's fix included; the first run used EKOS 525c782 and ekos-lakehouse 7a6eb94, which differ only in that fix and docs) |
 | [`testbed/`](testbed/), [`stack/`](stack/README.md) | **the containers**: Oracle XE with the iDempiere seed; the lakehouse stack; the project's Dagster |
 | [`scripts/`](scripts/tours/README.md) | the browser tours that drove each step, the book and docs generators |
 | [`presentation/`](presentation/) | the slides |

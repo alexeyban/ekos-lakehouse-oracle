@@ -1,0 +1,669 @@
+1
+00:00:00,600 --> 00:00:03,623
+This is a recording of one
+real run, start to finish.
+
+2
+00:00:03,623 --> 00:00:08,300
+The source is iDempiere, an open source E
+R P on Oracle, with nine hundred tables,
+
+3
+00:00:08,300 --> 00:00:11,779
+twenty years of migration scripts
+and a large Java code base.
+
+4
+00:00:11,779 --> 00:00:16,456
+We create a new project in the Ekos console
+and take it through the seven steps of
+
+5
+00:00:16,456 --> 00:00:17,711
+the operator workflow.
+
+6
+00:00:17,711 --> 00:00:18,852
+Analyse the sources.
+
+7
+00:00:18,852 --> 00:00:20,392
+Generate the documentation.
+
+8
+00:00:20,392 --> 00:00:22,502
+Review and sign off the source model.
+
+9
+00:00:22,502 --> 00:00:24,156
+Describe the reports we want.
+
+10
+00:00:24,156 --> 00:00:26,038
+Approve how each table is loaded.
+
+11
+00:00:26,038 --> 00:00:27,407
+Build bronze and silver.
+
+12
+00:00:27,407 --> 00:00:30,886
+And build the gold marts, each
+one reconciled against silver.
+
+13
+00:00:30,886 --> 00:00:35,677
+Nothing here is staged: every screen is
+from this run, and every number we say is on
+
+14
+00:00:35,677 --> 00:00:36,076
+screen.
+
+15
+00:00:36,076 --> 00:00:40,753
+Where something went wrong during the
+recording, we say so, and we show how it was
+
+16
+00:00:40,753 --> 00:00:41,096
+fixed.
+
+17
+00:00:42,600 --> 00:00:44,358
+First, what we are dealing with.
+
+18
+00:00:44,358 --> 00:00:48,644
+This map is how Ekos compiled the iDempiere
+code base: the twenty largest path
+
+19
+00:00:48,644 --> 00:00:52,986
+groups, from the base module with three
+thousand and eleven objects to the user
+
+20
+00:00:52,986 --> 00:00:57,601
+interface and the migration scripts, linked
+by how often their files change together
+
+21
+00:00:57,601 --> 00:00:58,645
+in the git history.
+
+22
+00:00:58,645 --> 00:01:02,986
+The second picture is the part of the
+database this lakehouse is built for: the
+
+23
+00:01:02,986 --> 00:01:07,437
+order to invoice slice, thirty three tables
+and their declared foreign keys, with
+
+24
+00:01:07,437 --> 00:01:10,954
+orders, order lines, invoices and
+business partners highlighted.
+
+25
+00:01:10,954 --> 00:01:14,086
+Both pictures are drawn from
+compiled facts, not by hand.
+
+26
+00:01:15,600 --> 00:01:16,120
+Step one.
+
+27
+00:01:16,120 --> 00:01:20,687
+The Sources page holds the code checkout,
+the documentation site and the Oracle
+
+28
+00:01:20,687 --> 00:01:23,173
+database, read through a read only account.
+
+29
+00:01:23,173 --> 00:01:25,832
+Testing the connection reads the live catalog.
+
+30
+00:01:25,832 --> 00:01:27,740
+Then one click: Init and compile.
+
+31
+00:01:27,740 --> 00:01:32,481
+Ekos reads the code, the scripts, the
+documents and the catalog, and compiles them
+
+32
+00:01:32,481 --> 00:01:37,106
+into one ledger, with no language model
+involved: the run page counts zero model
+
+33
+00:01:37,106 --> 00:01:37,452
+calls.
+
+34
+00:01:37,452 --> 00:01:42,019
+On this laptop the whole analysis took
+forty nine minutes, most of it the final
+
+35
+00:01:42,019 --> 00:01:44,390
+commit, because the machine was swapping.
+
+36
+00:01:44,390 --> 00:01:49,188
+Afterwards the census agrees with what was
+compiled: nine hundred and three tables,
+
+37
+00:01:49,188 --> 00:01:52,946
+one hundred and sixty views and
+sixty two routines on both sides.
+
+38
+00:01:52,946 --> 00:01:57,686
+The ledger now holds six hundred and seventy
+five thousand and thirty two entries.
+
+39
+00:01:59,200 --> 00:02:00,541
+Step two: documentation.
+
+40
+00:02:00,541 --> 00:02:05,124
+Generate writes the estate as wiki pages,
+straight from the ledger: the data model
+
+41
+00:02:05,124 --> 00:02:09,315
+by area, a page per table and routine,
+the schema history and the findings.
+
+42
+00:02:09,315 --> 00:02:11,215
+No data value ever reaches a page.
+
+43
+00:02:11,215 --> 00:02:15,518
+Preview publish shows what would change
+in the documentation store, here this
+
+44
+00:02:15,518 --> 00:02:18,368
+repository's GitHub wiki,
+without sending anything.
+
+45
+00:02:18,368 --> 00:02:22,895
+Once the review in step three narrowed
+the scope, the pages were generated again,
+
+46
+00:02:22,895 --> 00:02:25,745
+two hundred and thirty nine
+of them, and published.
+
+47
+00:02:25,745 --> 00:02:28,260
+The step bar now marks documentation as done.
+
+48
+00:02:29,767 --> 00:02:34,142
+Step three is the review, and it is a
+person's job; here, a demo operator.
+
+49
+00:02:34,142 --> 00:02:38,635
+Six subjects: scope, personal data,
+conflicts, identity, write behaviour and
+
+50
+00:02:38,635 --> 00:02:39,167
+glossary.
+
+51
+00:02:39,167 --> 00:02:39,877
+Scope first.
+
+52
+00:02:39,877 --> 00:02:43,838
+Ekos proposed eight hundred and
+forty nine tables as business data.
+
+53
+00:02:43,838 --> 00:02:48,627
+This lakehouse is for the order to invoice
+slice, so one command from the console
+
+54
+00:02:48,627 --> 00:02:53,120
+puts the other eight hundred and sixteen
+tables out of scope, with a reason.
+
+55
+00:02:53,120 --> 00:02:54,953
+The review now shows the slice.
+
+56
+00:02:54,953 --> 00:02:59,742
+Signing off means typing the subject's
+name: the sign off is bound to a digest of
+
+57
+00:02:59,742 --> 00:03:04,353
+exactly what was shown, and turns stale
+by itself if a fact behind it changes.
+
+58
+00:03:05,867 --> 00:03:09,115
+Inside the slice, seventeen
+conflicts block the sign off.
+
+59
+00:03:09,115 --> 00:03:13,673
+Each one is a column the application's
+model calls mandatory, while the database
+
+60
+00:03:13,673 --> 00:03:14,356
+allows null.
+
+61
+00:03:14,356 --> 00:03:18,743
+Ekos keeps both claims, with their
+sources, and measures the data: here, zero
+
+62
+00:03:18,743 --> 00:03:19,826
+contradicting rows.
+
+63
+00:03:19,826 --> 00:03:22,959
+The operator decides that
+both are valid, and says why.
+
+64
+00:03:22,959 --> 00:03:26,549
+One identity question remains:
+a git handle and a display name.
+
+65
+00:03:26,549 --> 00:03:31,221
+The handle is the local part of that
+person's commit address, so they are the same
+
+66
+00:03:31,221 --> 00:03:31,905
+contributor.
+
+67
+00:03:31,905 --> 00:03:35,722
+Personal data, write behaviour and
+the glossary are signed as well.
+
+68
+00:03:35,722 --> 00:03:39,710
+Six of six subjects signed: steps
+four to seven are no longer blocked.
+
+69
+00:03:41,210 --> 00:03:45,578
+We continue with step five, not four,
+and that is a finding of this recording:
+
+70
+00:03:45,578 --> 00:03:50,170
+requirements resolve against the deployed
+plan, so the plan has to be approved and
+
+71
+00:03:50,170 --> 00:03:53,585
+generated first, even though
+the step bar suggests step four.
+
+72
+00:03:53,585 --> 00:03:57,785
+The plan says, for each of the thirty
+three tables, how it lands in bronze.
+
+73
+00:03:57,785 --> 00:04:02,377
+Incremental where the application's code
+keeps the updated column, full otherwise;
+
+74
+00:04:02,377 --> 00:04:05,233
+how deletes are detected;
+which columns are masked.
+
+75
+00:04:05,233 --> 00:04:07,137
+Every decision shows its evidence.
+
+76
+00:04:07,137 --> 00:04:11,841
+The operator changes one table to a full
+load, with a reason, and approves the plan.
+
+77
+00:04:11,841 --> 00:04:15,425
+Approval binds the plan's digest:
+nothing else can be generated.
+
+78
+00:04:16,925 --> 00:04:21,779
+Generate writes the pipeline: the extraction
+SQL, the dbt silver models with their
+
+79
+00:04:21,779 --> 00:04:23,377
+tests, and the Dagster job.
+
+80
+00:04:23,377 --> 00:04:24,206
+Now step four.
+
+81
+00:04:24,206 --> 00:04:29,001
+Two marts are described as Markdown: sales
+by month and customer, and invoices by
+
+82
+00:04:29,001 --> 00:04:29,356
+month.
+
+83
+00:04:29,356 --> 00:04:30,540
+Every term resolves.
+
+84
+00:04:30,540 --> 00:04:35,157
+The third is written in plain words: net
+sales of completed customer orders by
+
+85
+00:04:35,157 --> 00:04:38,117
+month, product category
+and the customer's region.
+
+86
+00:04:38,117 --> 00:04:40,544
+The local model, llama3, drafts the mart.
+
+87
+00:04:40,544 --> 00:04:45,457
+This is the only language model call in
+the whole workflow, and Ekos does not trust
+
+88
+00:04:45,457 --> 00:04:48,654
+it: it resolves every term
+against the approved model.
+
+89
+00:04:48,654 --> 00:04:49,541
+Two terms fail.
+
+90
+00:04:49,541 --> 00:04:54,336
+The measure is an expression the resolver
+does not accept, and the filter names a
+
+91
+00:04:54,336 --> 00:04:55,935
+column that does not exist.
+
+92
+00:04:57,435 --> 00:05:00,132
+Questions go to the operator,
+never back to the model.
+
+93
+00:05:00,132 --> 00:05:04,228
+The operator replaces the measure with the
+sum of the order lines' net amount, and
+
+94
+00:05:04,228 --> 00:05:06,326
+the filter with completed customer orders.
+
+95
+00:05:06,326 --> 00:05:10,521
+Then Ekos asks a harder question: the
+customer's region can be reached from an order
+
+96
+00:05:10,521 --> 00:05:14,717
+line along many different foreign key paths,
+each with a different meaning, and Ekos
+
+97
+00:05:14,717 --> 00:05:15,616
+will not pick one.
+
+98
+00:05:15,616 --> 00:05:19,013
+The operator names the path through
+the business partner's location.
+
+99
+00:05:19,013 --> 00:05:22,909
+Every term now resolves, and the change
+log keeps each answer and who gave it.
+
+100
+00:05:22,909 --> 00:05:24,707
+All three requirements are approved.
+
+101
+00:05:26,207 --> 00:05:27,176
+Run the pipeline.
+
+102
+00:05:27,176 --> 00:05:31,622
+Dagster loads the thirty three tables
+from Oracle into bronze, in Iceberg, and
+
+103
+00:05:31,622 --> 00:05:32,933
+builds silver with dbt.
+
+104
+00:05:32,933 --> 00:05:37,607
+The run succeeded: thirty six steps in
+five minutes and three seconds, sixty eight
+
+105
+00:05:37,607 --> 00:05:40,343
+assets and eight hundred
+and ninety five checks.
+
+106
+00:05:40,343 --> 00:05:44,048
+Getting here took three launches,
+and this is the second finding.
+
+107
+00:05:44,048 --> 00:05:48,836
+The new project's silver first landed in
+the schema an earlier project uses, because
+
+108
+00:05:48,836 --> 00:05:52,142
+silver and gold schema names
+ignored the project's prefix.
+
+109
+00:05:52,142 --> 00:05:56,873
+We stopped, fixed the product so each
+project gets its own silver and gold schemas,
+
+110
+00:05:56,873 --> 00:05:58,298
+regenerated and reloaded.
+
+111
+00:05:58,298 --> 00:06:02,972
+Two tables carry data warnings: a document
+type and a payment type hold a code the
+
+112
+00:06:02,972 --> 00:06:05,309
+application's code list does not declare.
+
+113
+00:06:06,809 --> 00:06:10,165
+Step seven turns each approved
+requirement into a gold mart.
+
+114
+00:06:10,165 --> 00:06:14,528
+Propose compiles the description into a
+dbt model on a branch, and checks that
+
+115
+00:06:14,528 --> 00:06:16,038
+nothing in it was invented.
+
+116
+00:06:16,038 --> 00:06:17,884
+Merge is the operator's approval.
+
+117
+00:06:17,884 --> 00:06:21,016
+Build runs only that mart and
+its tests through Dagster.
+
+118
+00:06:21,016 --> 00:06:25,659
+Reconcile reads each measure's total from
+the mart and computes the same total from
+
+119
+00:06:25,659 --> 00:06:26,050
+silver.
+
+120
+00:06:26,050 --> 00:06:30,581
+Every term is exact, and every total
+matches: three hundred and fifty eight point
+
+121
+00:06:30,581 --> 00:06:35,279
+four zero for net sales by region and
+category, three hundred and seventy nine point
+
+122
+00:06:35,279 --> 00:06:37,852
+nine zero and three orders for sales by month.
+
+123
+00:06:37,852 --> 00:06:41,488
+All three marts are reconciled,
+in the project's own gold schema.
+
+124
+00:06:42,988 --> 00:06:47,373
+dbt's own lineage graph shows the models:
+bronze sources on the left, the silver
+
+125
+00:06:47,373 --> 00:06:49,895
+models, and the three gold marts on the right.
+
+126
+00:06:49,895 --> 00:06:51,758
+Column level lineage goes further.
+
+127
+00:06:51,758 --> 00:06:56,253
+For net sales, the order line's net amount
+is cast into bronze, the latest version
+
+128
+00:06:56,253 --> 00:06:58,226
+is kept in silver, and gold sums it.
+
+129
+00:06:58,226 --> 00:07:01,296
+Month comes from the order
+date, truncated to the month.
+
+130
+00:07:01,296 --> 00:07:04,640
+Every step is read from the
+generated SQL, not drawn by hand.
+
+131
+00:07:04,640 --> 00:07:09,189
+Making this work for Oracle's upper case
+names was the third fix of this recording:
+
+132
+00:07:09,189 --> 00:07:12,094
+the documentation tool
+matched names with their case.
+
+133
+00:07:13,594 --> 00:07:14,152
+To sum up.
+
+134
+00:07:14,152 --> 00:07:18,840
+One new project, analysed from code, documents
+and the live database with zero model
+
+135
+00:07:18,840 --> 00:07:19,175
+calls.
+
+136
+00:07:19,175 --> 00:07:22,580
+Two hundred and thirty nine
+pages of documentation published.
+
+137
+00:07:22,580 --> 00:07:25,594
+A review signed off by a
+person, decision by decision.
+
+138
+00:07:25,594 --> 00:07:30,058
+Three marts described in Markdown or in
+plain words, resolved without invention,
+
+139
+00:07:30,058 --> 00:07:32,793
+built through Dagster and
+reconciled to the cent.
+
+140
+00:07:32,793 --> 00:07:37,370
+What is still open: two code values outside
+the application's lists in silver, the
+
+141
+00:07:37,370 --> 00:07:41,779
+dashboard's growth chart timing out on
+this ledger, and the step bar suggesting
+
+142
+00:07:41,779 --> 00:07:43,398
+requirements before the plan.
+
+143
+00:07:43,398 --> 00:07:46,858
+Two product defects were found
+and fixed during the recording.
+
+144
+00:07:46,858 --> 00:07:50,653
+Everything is in the repository,
+with the run log of this recording.
+

@@ -1,0 +1,2 @@
+estate docs: 239 page(s) — 137 written, 102 unchanged, 820 removed → ~/.ekos/data/default/idemsales/docs/estate
+  docs: licence unknown — its text is left out (set [docs-estate] licences.docs to use it)

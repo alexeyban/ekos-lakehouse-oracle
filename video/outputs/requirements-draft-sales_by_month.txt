@@ -1,0 +1,1 @@
+sales_by_month: resolved — 6 term(s), 0 question(s), reads C_ORDER, C_BPARTNER

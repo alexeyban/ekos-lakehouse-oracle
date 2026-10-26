@@ -1,0 +1,38 @@
+<!-- Template (narrated-demo-video skill): edit .brand, h1, .sub, .tag, .chips, .stack texts and the
+     <img src> (a tight real crop from the demo, placed beside this file). Render at 1280x720. -->
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0}
+html,body{width:1280px;height:720px;overflow:hidden;background:#0f1419;font-family:'DejaVu Sans',sans-serif;color:#e8eaee}
+.bg{position:absolute;inset:0;background:
+  radial-gradient(900px 600px at 85% 55%,rgba(127,209,185,.16),transparent 60%),
+  radial-gradient(700px 500px at 0% 0%,rgba(130,170,255,.10),transparent 60%)}
+.grid{position:absolute;inset:0;opacity:.07;background-image:linear-gradient(#7fd1b9 1px,transparent 1px),linear-gradient(90deg,#7fd1b9 1px,transparent 1px);background-size:48px 48px}
+.left{position:absolute;left:64px;top:58px;width:640px}
+.brand{font-weight:700;letter-spacing:6px;font-size:26px;color:#7fd1b9}
+h1{font-size:72px;line-height:1.0;font-weight:800;margin-top:26px;letter-spacing:-2px}
+h1 .arrow{color:#7fd1b9}
+.sub{font-size:40px;font-weight:700;margin-top:26px;line-height:1.2}
+.sub span{color:#ffd666}
+.chips{position:absolute;left:64px;bottom:56px;display:flex;gap:14px}
+.chip{font-size:24px;font-weight:700;padding:10px 20px;border-radius:999px;border:2px solid #7fd1b9;color:#7fd1b9}
+.chip.solid{background:#7fd1b9;color:#0f1419}
+.term{position:absolute;right:-24px;top:300px;width:640px;border-radius:14px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 2px rgba(127,209,185,.35);transform:rotate(-3deg);background:#0f1419}
+.bar{height:34px;background:#1a2029;display:flex;align-items:center;gap:8px;padding:0 14px}
+.dot{width:12px;height:12px;border-radius:50%}
+.term img{display:block;width:640px}
+.tag{position:absolute;right:60px;top:520px;transform:rotate(-3deg);background:#ffd666;color:#0f1419;
+  font-weight:800;font-size:30px;padding:10px 20px;border-radius:10px}
+.stack{position:absolute;right:56px;bottom:62px;font-size:20px;color:#8a92a1;letter-spacing:1px}
+</style></head><body>
+<div class="bg"></div><div class="grid"></div>
+<div class="left">
+  <div class="brand">EKOS · LEGACY ERP</div>
+  <h1>iDempiere<br><span class="arrow">→</span> gold marts</h1>
+  <div class="sub">Analysed, reviewed, reconciled.<br><span>Nothing invented.</span></div>
+</div>
+<div class="term"><div class="bar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span></div><img src="crop.png"></div>
+<div class="tag">✓ 3 marts = silver totals</div>
+<div class="chips"><span class="chip solid">8-MIN DEMO</span><span class="chip">ONE REAL RUN</span></div>
+<div class="stack">Oracle · Trino · Iceberg · dbt · Dagster</div>
+</body></html>

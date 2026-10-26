@@ -1,0 +1,36 @@
+digraph L {
+label="Column lineage of gold_sales.sales_by_month: source → bronze → silver → gold"; labelloc=t;
+fontsize=24; fontname="DejaVu Sans Bold"; rankdir=LR; bgcolor="white"; nodesep=0.2; ranksep=0.8;
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=17, color="#6b7280"];
+edge [fontname="DejaVu Sans", fontsize=14, color="#6d28d9", fontcolor="#4b5563"];
+subgraph cluster_source { label="source"; fontsize=18; color="#d1d5db"; style=rounded;
+n4 [label="C_ORDER\nGRANDTOTAL", fillcolor="#e0f2fe"];
+n8 [label="C_BPARTNER\nNAME", fillcolor="#e0f2fe"];
+n12 [label="C_ORDER\nDATEORDERED", fillcolor="#e0f2fe"];
+}
+subgraph cluster_bronze { label="bronze"; fontsize=18; color="#d1d5db"; style=rounded;
+n3 [label="C_ORDER\nGRANDTOTAL", fillcolor="#fde68a"];
+n7 [label="C_BPARTNER\nNAME", fillcolor="#fde68a"];
+n11 [label="C_ORDER\nDATEORDERED", fillcolor="#fde68a"];
+}
+subgraph cluster_silver { label="silver"; fontsize=18; color="#d1d5db"; style=rounded;
+n2 [label="ADEMPIERE__C_ORDER\nGRANDTOTAL", fillcolor="#e5e7eb"];
+n6 [label="ADEMPIERE__C_BPARTNER\nNAME", fillcolor="#e5e7eb"];
+n10 [label="ADEMPIERE__C_ORDER\nDATEORDERED", fillcolor="#e5e7eb"];
+}
+subgraph cluster_gold { label="gold"; fontsize=18; color="#d1d5db"; style=rounded;
+n0 [label="gold__sales_by_month\norders", fillcolor="#fef3c7"];
+n1 [label="gold__sales_by_month\ntotal", fillcolor="#fef3c7"];
+n5 [label="gold__sales_by_month\ncustomer", fillcolor="#fef3c7"];
+n9 [label="gold__sales_by_month\nmonth", fillcolor="#fef3c7"];
+}
+n2 -> n1 [label="SUM('C_ORDER'.'GRANDTOTAL')"];
+n3 -> n2 [label=""];
+n4 -> n3 [label="CAST('GRANDTOTAL' AS decimal(38,2)) [na…"];
+n6 -> n5 [label="'C_BPARTNER'.'NAME'"];
+n7 -> n6 [label=""];
+n8 -> n7 [label=""];
+n10 -> n9 [label="DATE_TRUNC('month', 'C_ORDER'.'DATEORDE…"];
+n11 -> n10 [label=""];
+n12 -> n11 [label="CAST('DATEORDERED' AS timestamp(6)) [wi…"];
+}

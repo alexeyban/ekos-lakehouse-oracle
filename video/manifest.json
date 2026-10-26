@@ -1,0 +1,159 @@
+{
+  "steps": [
+    {
+      "id": "01-intro",
+      "title": "EKOS on a legacy ERP: from analysis to reconciled marts",
+      "audio": "steps/01-intro/narration.wav",
+      "duration_s": 40.5,
+      "shots": [
+        "steps/01-intro/intro.png"
+      ]
+    },
+    {
+      "id": "02-estate",
+      "title": "The estate: code and database",
+      "audio": "steps/02-estate/narration.wav",
+      "duration_s": 31.5,
+      "shots": [
+        "steps/02-estate/project-map.png",
+        "steps/02-estate/source-er-keys.png"
+      ]
+    },
+    {
+      "id": "03-analyse",
+      "title": "Step 1 \u2014 Analyse the sources",
+      "audio": "steps/03-analyse/narration.wav",
+      "duration_s": 42.1,
+      "shots": [
+        "steps/03-analyse/01-sources.png",
+        "steps/03-analyse/02-database-tested.png",
+        "steps/03-analyse/04-analysis-recover.png",
+        "steps/03-analyse/05-analysis-done.png",
+        "steps/03-analyse/06-census-equals-compiled.png",
+        "steps/03-analyse/07-dashboard.png"
+      ]
+    },
+    {
+      "id": "04-docs",
+      "title": "Step 2 \u2014 Documentation",
+      "audio": "steps/04-docs/narration.wav",
+      "duration_s": 29.1,
+      "shots": [
+        "steps/04-docs/08-docs-page.png",
+        "steps/04-docs/11-docs-preview-run.png",
+        "steps/04-docs/51-docs-published.png"
+      ]
+    },
+    {
+      "id": "05-scope",
+      "title": "Step 3 \u2014 Review: scope",
+      "audio": "steps/05-scope/narration.wav",
+      "duration_s": 34.6,
+      "shots": [
+        "steps/05-scope/13-review-before.png",
+        "steps/05-scope/14-scope-command.png",
+        "steps/05-scope/15-scope-run.png",
+        "steps/05-scope/16-scope-slice.png",
+        "steps/05-scope/17-scope-signed.png"
+      ]
+    },
+    {
+      "id": "06-conflicts",
+      "title": "Step 3 \u2014 Conflicts, identity and sign-off",
+      "audio": "steps/06-conflicts/narration.wav",
+      "duration_s": 33.8,
+      "shots": [
+        "steps/06-conflicts/18-conflict-decision.png",
+        "steps/06-conflicts/19-conflict-recorded.png",
+        "steps/06-conflicts/21-identity-decision.png",
+        "steps/06-conflicts/22-pii.png",
+        "steps/06-conflicts/23-review-signed.png"
+      ]
+    },
+    {
+      "id": "07-extraction",
+      "title": "Step 5 \u2014 The extraction plan",
+      "audio": "steps/07-extraction/narration.wav",
+      "duration_s": 34.2,
+      "shots": [
+        "steps/07-extraction/33-extraction-plan.png",
+        "steps/07-extraction/34-table-evidence-tile1.png",
+        "steps/07-extraction/35-change.png",
+        "steps/07-extraction/37-plan-approved.png"
+      ]
+    },
+    {
+      "id": "08-requirements",
+      "title": "Step 6 \u2192 Step 4 \u2014 Generate, then describe the marts",
+      "audio": "steps/08-requirements/narration.wav",
+      "duration_s": 39.0,
+      "shots": [
+        "steps/08-requirements/38-generate-run.png",
+        "steps/08-requirements/24-requirement-from-file.png",
+        "steps/08-requirements/25-draft-from-text.png",
+        "steps/08-requirements/27-draft-questions-tile3.png"
+      ]
+    },
+    {
+      "id": "09-answers",
+      "title": "Step 4 \u2014 The operator answers; nothing is invented",
+      "audio": "steps/09-answers/narration.wav",
+      "duration_s": 27.3,
+      "shots": [
+        "steps/09-answers/28-answer.png",
+        "steps/09-answers/29-answered-tile3.png",
+        "steps/09-answers/29-answered-tile4.png",
+        "steps/09-answers/31-requirements-approved.png"
+      ]
+    },
+    {
+      "id": "10-load",
+      "title": "Step 6 \u2014 Bronze and silver through Dagster",
+      "audio": "steps/10-load/narration.wav",
+      "duration_s": 39.1,
+      "shots": [
+        "steps/10-load/40-run-launched.png",
+        "steps/10-load/41-dagster-1.png",
+        "steps/10-load/42-dagster-assets.png",
+        "steps/10-load/43-lakehouse-tables.png",
+        "steps/10-load/44-bar-after-load.png"
+      ]
+    },
+    {
+      "id": "11-marts",
+      "title": "Step 7 \u2014 Marts: propose, merge, build, reconcile",
+      "audio": "steps/11-marts/narration.wav",
+      "duration_s": 34.7,
+      "shots": [
+        "steps/11-marts/45-mart-approved.png",
+        "steps/11-marts/46-mart-proposed-tile3.png",
+        "steps/11-marts/48-region_category_sales-reconciled-tile4.png",
+        "steps/11-marts/48-region_category_sales-reconciled-tile5.png",
+        "steps/11-marts/48-sales_by_month-reconciled-tile5.png",
+        "steps/11-marts/49-marts.png"
+      ]
+    },
+    {
+      "id": "12-lineage",
+      "title": "Models, transformations and lineage",
+      "audio": "steps/12-lineage/narration.wav",
+      "duration_s": 29.1,
+      "shots": [
+        "steps/12-lineage/55-dbt-lineage.png",
+        "steps/12-lineage/lineage-region_category_sales.png",
+        "steps/12-lineage/lineage-sales_by_month.png",
+        "steps/12-lineage/54-dbt-model.png"
+      ]
+    },
+    {
+      "id": "13-recap",
+      "title": "What we got",
+      "audio": "steps/13-recap/narration.wav",
+      "duration_s": 37.1,
+      "shots": [
+        "steps/13-recap/52-dashboard-final.png",
+        "steps/13-recap/recap.png"
+      ]
+    }
+  ]
+}

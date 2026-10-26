@@ -35,7 +35,8 @@ ekos-lakehouse console start && ekos-lakehouse console open      # steps 1–7 f
 
 # 5. The orchestrator, once step 5 is approved and the pipeline generated (steps 6–7)
 docker build -t ekos-lakehouse/dagster:1.13.26 src/ekos-lakehouse/deploy/dagster
-EKOS_LH_PROJECT=~/.ekos/data/default/idemdocs EKOS_LAKEHOUSE_BIN=$(command -v ekos-lakehouse) \
+EKOS_HOME=~/.ekos EKOS_LH_PROJECT=~/.ekos/data/default/idemdocs EKOS_SOURCE_ROOT=<idempiere checkout> \
+EKOS_LAKEHOUSE_BIN=$(command -v ekos-lakehouse) \
 ORACLE_INSTANT_CLIENT=<instantclient_23_*> docker compose -f stack/docker-compose.dagster.yml up -d
 ```
 

@@ -1,0 +1,7 @@
+# the MP4 is a release asset (video-2026-10-27); segments and step copies are rebuilt by make_steps.py / make_video.py
+render/
+render.log
+steps/*/*.png
+steps/*/*.wav
+__pycache__/
+thumb/small.png

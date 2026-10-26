@@ -1,0 +1,7 @@
+[
+ {"button": "Remove a term: region_category_sales", "inputs": {"Term": "sum_of_c_orderline_priceactual_c_orderli"}},
+ {"button": "Add a measure: region_category_sales", "inputs": {"Name": "net_sales", "Definition": "sum of c_orderline.linenetamt"}},
+ {"button": "Remove a filter: region_category_sales", "inputs": {"Filter, as written": "C_ORDER.iscompleted is true"}},
+ {"button": "Add a filter: region_category_sales", "inputs": {"Filter": "c_order.docstatus = 'CO'"}},
+ {"button": "Add a filter: region_category_sales", "inputs": {"Filter": "c_order.issotrx is true"}}
+]

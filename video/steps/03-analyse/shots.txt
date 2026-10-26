@@ -1,0 +1,6 @@
+01-sources.png
+02-database-tested.png
+04-analysis-recover.png
+05-analysis-done.png
+06-census-equals-compiled.png
+07-dashboard.png

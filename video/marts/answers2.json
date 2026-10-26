@@ -1,0 +1,3 @@
+[
+ {"button": "Change a term: region_category_sales", "inputs": {"Term": "region", "New definition": "c_region.name via c_orderline.c_bpartner_location_id, c_location.c_region_id"}}
+]
