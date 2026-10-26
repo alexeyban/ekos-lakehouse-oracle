@@ -52,3 +52,26 @@ dictionary = "idempiere"                   # AD_Table flags (deleteable, change 
 # migration scripts. The docs site has no licence file, so its text stays out of generated docs.
 [docs-estate]
 licences = { "idempiere-db" = "GPL-2.0" }
+
+# ── Steps 2 and 4–7: EKOS Lakehouse (ekos-lakehouse; stack/ has the services) ──────────────────
+[extensions.lakehouse]
+require-plan-approval = true               # generate builds only the extraction plan step 5 approved
+dagster-url = "http://127.0.0.1:53100"     # stack/docker-compose.dagster.yml
+trino-url = "http://127.0.0.1:58080"       # ekos-lakehouse's sandbox stack
+source-engine = "oracle"                   # RFC 0216
+source-database = "idempiere-db"           # the [[databases]] entry above
+source-catalog = "idempiere"               # stack/trino/idempiere.properties
+namespace-prefix = "bronze_idem_"
+application-watermark = "UPDATED"          # RFC 0225: iDempiere stamps every write it makes
+
+# Step 2 (RFC 0230): where the documentation is published — this repository's wiki.
+# The token is the publisher's own variable, GITHUB_TOKEN; never written here.
+[extensions.lakehouse.docs]
+target = "github"
+repo = "alexeyban/ekos-lakehouse-oracle"
+
+# Step 4 (RFC 0215): the one model call of the workflow, on a local model.
+[llm.tasks.requirements]
+provider = "ollama"
+model = "llama3"
+context-window = 8192

@@ -1,0 +1,6 @@
+[submodule "src/EKOS"]
+	path = src/EKOS
+	url = https://github.com/alexeyban/EKOS.git
+[submodule "src/ekos-lakehouse"]
+	path = src/ekos-lakehouse
+	url = https://github.com/alexeyban/ekos-lakehouse.git

@@ -6,7 +6,7 @@ ekos_generated: true
 
 # Step 2 — Documentation
 
-**On the step bar:** partial — 1060 page(s) generated 2026-10-26T17:21:29Z into ~/.ekos/data/default/idemdocs/docs/estate; not published
+**On the step bar:** done — 1060 page(s) generated 2026-10-26T18:23:14Z, published 2026-10-26T18:23:52Z to https://github.com/alexeyban/ekos-lakehouse-oracle/wiki
 
 ## What the operator sees
 
@@ -30,24 +30,6 @@ EKOS writes the source estate as wiki pages from the ledger alone: the data mode
 
 ## The run log
 
-**`lakehouse docs generate`** — succeeded, from the console, 2026-10-26T17:18:51.194784; model calls: 0.
-
-```json
-{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse docs generate", "t_ms": 0}
-{"stage": "docs", "msg": "estate pages written", "at": "2026-10-26T17:19:16Z", "committed_at": "2026-10-25 16:56 UTC", "output": "~/.ekos/data/default/idemdocs/docs/estate", "pages": 1060, "removed": 0, "unchanged": 1060, "written": 0, "cmd": "lakehouse docs generate", "t_ms": 25468}
-{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs generate", "t_ms": 26701}
-{"stage": "run", "msg": "finished", "ok": true, "ms": 26701, "warnings": 0, "cmd": "lakehouse docs generate", "t_ms": 26701}
-```
-
-**`lakehouse docs publish --dry-run`** — succeeded, from the console, 2026-10-26T17:19:22.430122; model calls: 0.
-
-```json
-{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse docs publish", "t_ms": 0}
-{"stage": "docs", "msg": "dry run", "ok": true, "pages": 1060, "target": "github", "cmd": "lakehouse docs publish", "t_ms": 1605}
-{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs publish", "t_ms": 1605}
-{"stage": "run", "msg": "finished", "ok": true, "ms": 1605, "warnings": 0, "cmd": "lakehouse docs publish", "t_ms": 1605}
-```
-
 **`lakehouse docs generate`** — succeeded, from the console, 2026-10-26T17:21:03.755642; model calls: 0.
 
 ```json
@@ -57,13 +39,31 @@ EKOS writes the source estate as wiki pages from the ledger alone: the data mode
 {"stage": "run", "msg": "finished", "ok": true, "ms": 26780, "warnings": 0, "cmd": "lakehouse docs generate", "t_ms": 26780}
 ```
 
-**`lakehouse docs publish --dry-run`** — succeeded, from the console, 2026-10-26T17:21:31.162141; model calls: 0.
+**`lakehouse docs generate`** — succeeded, from a terminal, 2026-10-26T18:22:45+00:00; model calls: 0.
+
+```json
+{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse docs generate", "t_ms": 0}
+{"stage": "docs", "msg": "estate pages written", "at": "2026-10-26T18:23:14Z", "committed_at": "2026-10-25 16:56 UTC", "output": "~/.ekos/data/default/idemdocs/docs/estate", "pages": 1060, "removed": 0, "unchanged": 1060, "written": 0, "cmd": "lakehouse docs generate", "t_ms": 29174}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs generate", "t_ms": 30470}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 30470, "warnings": 0, "cmd": "lakehouse docs generate", "t_ms": 30470}
+```
+
+**`lakehouse docs publish`** — succeeded, from a terminal, 2026-10-26T18:23:36+00:00; model calls: 0.
 
 ```json
 {"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse docs publish", "t_ms": 0}
-{"stage": "docs", "msg": "dry run", "ok": true, "pages": 1060, "target": "github", "cmd": "lakehouse docs publish", "t_ms": 1607}
-{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs publish", "t_ms": 1607}
-{"stage": "run", "msg": "finished", "ok": true, "ms": 1607, "warnings": 0, "cmd": "lakehouse docs publish", "t_ms": 1607}
+{"stage": "docs", "msg": "dry run", "ok": true, "pages": 1060, "target": "github", "cmd": "lakehouse docs publish", "t_ms": 1490}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs publish", "t_ms": 1490}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 1490, "warnings": 0, "cmd": "lakehouse docs publish", "t_ms": 1490}
+```
+
+**`lakehouse docs publish`** — succeeded, from a terminal, 2026-10-26T18:23:49+00:00; model calls: 0.
+
+```json
+{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse docs publish", "t_ms": 0}
+{"stage": "docs", "msg": "published", "ok": true, "pages": 1060, "target": "github", "cmd": "lakehouse docs publish", "t_ms": 3751}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs publish", "t_ms": 3751}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 3751, "warnings": 0, "cmd": "lakehouse docs publish", "t_ms": 3751}
 ```
 
 ## What the operator gets

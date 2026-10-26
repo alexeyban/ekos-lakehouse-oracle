@@ -1,78 +1,78 @@
 {
-  "subjects": [
-    {
-      "blocking": 0,
-      "decided": 3,
-      "digest": "05af9eac2dd3ee806bd24ecfb47962bd58dd4c1b78dc392143c04cd95a9addad",
-      "items": 903,
-      "outdated": 0,
-      "signoff": {
-        "signed_at": "2026-10-25T13:39:00.467749826+00:00",
-        "signed_by": "token:Ann",
-        "state": "valid"
-      },
-      "subject": "scope"
-    },
-    {
-      "blocking": 0,
-      "decided": 1,
-      "digest": "d2d825d637d08e430dfb487b07203d2a5b6e09d3947b4d36204ebfce7907ec51",
-      "items": 196,
-      "outdated": 0,
-      "signoff": {
-        "signed_at": "2026-10-25T13:39:31.633818885+00:00",
-        "signed_by": "token:Ann",
-        "state": "valid"
-      },
-      "subject": "pii"
-    },
-    {
-      "blocking": 195,
-      "decided": 0,
-      "digest": "69b26bd11e4b49c141d7d2ea7684a357b30617d76dfa510fe97d70f02c0d9d78",
-      "items": 429,
-      "outdated": 0,
-      "signoff": {
-        "state": "none"
-      },
-      "subject": "conflicts"
-    },
-    {
-      "blocking": 1,
-      "decided": 0,
-      "digest": "3ec7634ac4a5d355ff58e8254c10674545d539196c601cf7fa708dab13f7da81",
-      "items": 1,
-      "outdated": 0,
-      "signoff": {
-        "state": "none"
-      },
-      "subject": "identity"
-    },
-    {
-      "blocking": 0,
-      "decided": 0,
-      "digest": "889b04a099f2e5b1278d8597f5f624d543a907011452f0a430889b3d7bc90216",
-      "items": 850,
-      "outdated": 0,
-      "signoff": {
-        "signed_at": "2026-10-25T13:40:00.903254444+00:00",
-        "signed_by": "token:Ann",
-        "state": "valid"
-      },
-      "subject": "write-behaviour"
-    },
-    {
-      "blocking": 0,
-      "decided": 0,
-      "digest": "6ccd67ad4a12a2d034262d0297b577cc8b94929331a518edc4a079b0f8cf9493",
-      "items": 0,
-      "outdated": 0,
-      "signoff": {
-        "signed_at": "2026-10-25T13:40:29.640028223+00:00",
-        "signed_by": "token:Ann",
-        "state": "valid"
-      },
-      "subject": "glossary"
-    }
-  ]
+    "subjects": [
+        {
+            "blocking": 0,
+            "decided": 3,
+            "digest": "05af9eac2dd3ee806bd24ecfb47962bd58dd4c1b78dc392143c04cd95a9addad",
+            "items": 903,
+            "outdated": 0,
+            "signoff": {
+                "signed_at": "2026-10-25T13:39:00.467749826+00:00",
+                "signed_by": "token:Ann",
+                "state": "valid"
+            },
+            "subject": "scope"
+        },
+        {
+            "blocking": 0,
+            "decided": 1,
+            "digest": "d2d825d637d08e430dfb487b07203d2a5b6e09d3947b4d36204ebfce7907ec51",
+            "items": 196,
+            "outdated": 0,
+            "signoff": {
+                "signed_at": "2026-10-25T13:39:31.633818885+00:00",
+                "signed_by": "token:Ann",
+                "state": "valid"
+            },
+            "subject": "pii"
+        },
+        {
+            "blocking": 195,
+            "decided": 0,
+            "digest": "69b26bd11e4b49c141d7d2ea7684a357b30617d76dfa510fe97d70f02c0d9d78",
+            "items": 429,
+            "outdated": 0,
+            "signoff": {
+                "state": "none"
+            },
+            "subject": "conflicts"
+        },
+        {
+            "blocking": 1,
+            "decided": 0,
+            "digest": "3ec7634ac4a5d355ff58e8254c10674545d539196c601cf7fa708dab13f7da81",
+            "items": 1,
+            "outdated": 0,
+            "signoff": {
+                "state": "none"
+            },
+            "subject": "identity"
+        },
+        {
+            "blocking": 0,
+            "decided": 0,
+            "digest": "889b04a099f2e5b1278d8597f5f624d543a907011452f0a430889b3d7bc90216",
+            "items": 850,
+            "outdated": 0,
+            "signoff": {
+                "signed_at": "2026-10-25T13:40:00.903254444+00:00",
+                "signed_by": "token:Ann",
+                "state": "valid"
+            },
+            "subject": "write-behaviour"
+        },
+        {
+            "blocking": 0,
+            "decided": 0,
+            "digest": "6ccd67ad4a12a2d034262d0297b577cc8b94929331a518edc4a079b0f8cf9493",
+            "items": 0,
+            "outdated": 0,
+            "signoff": {
+                "signed_at": "2026-10-25T13:40:29.640028223+00:00",
+                "signed_by": "token:Ann",
+                "state": "valid"
+            },
+            "subject": "glossary"
+        }
+    ]
 }

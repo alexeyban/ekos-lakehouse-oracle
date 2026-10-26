@@ -1,0 +1,38 @@
+# The project's orchestrator: Dagster over the pipeline EKOS Lakehouse generated (pipeline/dagster/).
+# The same container the iDempiere testbed ran (ekos-lakehouse's image), with what an Oracle source
+# adds: the Oracle Instant Client and the read-only user's password for the extraction.
+#
+#   EKOS_LH_PROJECT=<EKOS_HOME>/data/default/idemdocs \
+#   EKOS_LAKEHOUSE_BIN=$(command -v ekos-lakehouse) \
+#   ORACLE_INSTANT_CLIENT=<dir of instantclient_23_*> \
+#     docker compose -f stack/docker-compose.dagster.yml up -d
+#
+# The generated schedules start switched ON (hourly bronze, nightly maintenance): on a test machine
+# the first tick launches the full extraction. Stop them in Dagster's UI (Automation) first if you
+# only want to run single assets (`lakehouse marts build`, `lakehouse run --asset`).
+name: ekos-idempiere
+services:
+  dagster:
+    image: ekos-lakehouse/dagster:1.13.26        # build: src/ekos-lakehouse/deploy/dagster
+    network_mode: host
+    user: "${EKOS_LH_UID:-1000}:${EKOS_LH_GID:-1000}"
+    environment:
+      EKOS_LH_PROJECT: ${EKOS_LH_PROJECT:?set EKOS_LH_PROJECT}
+      EKOS_LH_PROJECT_NAME: idemdocs
+      EKOS_LH_TRINO_URL: http://127.0.0.1:58080
+      EKOS_LAKEHOUSE_BIN: /usr/local/bin/ekos-lakehouse
+      EKOS_ORACLE_PASSWORD: ${EKOS_ORACLE_PASSWORD:-ekos-ro-local-only}   # testbed default, loopback only
+      EKOS_LH_PII_KEY: ${EKOS_LH_PII_KEY:-sandbox-only-pii-key}
+      LD_LIBRARY_PATH: /opt/instantclient
+      DAGSTER_HOME: ${EKOS_LH_PROJECT}/.dagster
+      HOME: /tmp
+    volumes:
+      - ${EKOS_LH_PROJECT}:${EKOS_LH_PROJECT}
+      - ${EKOS_LAKEHOUSE_BIN:?set EKOS_LAKEHOUSE_BIN}:/usr/local/bin/ekos-lakehouse:ro
+      - ${ORACLE_INSTANT_CLIENT:?set ORACLE_INSTANT_CLIENT}:/opt/instantclient:ro
+      - /lib/x86_64-linux-gnu/libaio.so.1:/usr/lib/x86_64-linux-gnu/libaio.so.1:ro
+    command:
+      - sh
+      - -c
+      - mkdir -p "$$DAGSTER_HOME" && exec dagster dev -h 127.0.0.1 -p 53100 -f "$$EKOS_LH_PROJECT/pipeline/dagster/definitions.py"
+    mem_limit: 2500m

@@ -56,31 +56,6 @@ The connectors read the sources as they are: files from the repositories, the li
 {"stage": "run", "msg": "finished", "ok": true, "ms": 188666, "warnings": 0, "cmd": "commit", "t_ms": 188666}
 ```
 
-**`database test`** — succeeded, from a terminal, 2026-10-26T14:11:42+00:00; model calls: 0.
-
-```json
-{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "database test", "t_ms": 0}
-{"stage": "oracle.catalog", "msg": "read DBA_OBJECTS", "ms": 35, "owner": "ADEMPIERE", "query": "objects", "rows": 3280, "cmd": "database test", "t_ms": 84}
-{"stage": "oracle.catalog", "msg": "read DBA_TABLES", "ms": 28, "owner": "ADEMPIERE", "query": "tables", "rows": 903, "cmd": "database test", "t_ms": 112}
-{"stage": "oracle.catalog", "msg": "read DBA_TAB_COLUMNS", "ms": 280, "owner": "ADEMPIERE", "query": "columns", "rows": 30457, "cmd": "database test", "t_ms": 393}
-{"stage": "oracle.catalog", "msg": "read DBA_CONSTRAINTS", "ms": 181, "owner": "ADEMPIERE", "query": "constraints", "rows": 18444, "cmd": "database test", "t_ms": 575}
-{"stage": "oracle.catalog", "msg": "read DBA_CONS_COLUMNS", "ms": 88, "owner": "ADEMPIERE", "query": "constraint_columns", "rows": 18697, "cmd": "database test", "t_ms": 663}
-{"stage": "oracle.catalog", "msg": "read DBA_INDEXES", "ms": 31, "owner": "ADEMPIERE", "query": "indexes", "rows": 2109, "cmd": "database test", "t_ms": 695}
-{"stage": "oracle.catalog", "msg": "read DBA_IND_COLUMNS", "ms": 30, "owner": "ADEMPIERE", "query": "index_columns", "rows": 2624, "cmd": "database test", "t_ms": 726}
-{"stage": "oracle.catalog", "msg": "read DBA_VIEWS", "ms": 10, "owner": "ADEMPIERE", "query": "views", "rows": 160, "cmd": "database test", "t_ms": 738}
-{"stage": "oracle.catalog", "msg": "read DBA_MVIEWS", "ms": 0, "owner": "ADEMPIERE", "query": "mviews", "rows": 0, "cmd": "database test", "t_ms": 738}
-{"stage": "oracle.catalog", "msg": "read DBA_SEQUENCES", "ms": 1, "owner": "ADEMPIERE", "query": "sequences", "rows": 0, "cmd": "database test", "t_ms": 739}
-{"stage": "oracle.catalog", "msg": "read DBA_SOURCE", "ms": 26, "owner": "ADEMPIERE", "query": "source", "rows": 4753, "cmd": "database test", "t_ms": 766}
-{"stage": "oracle.catalog", "msg": "read DBA_TRIGGERS", "ms": 1, "owner": "ADEMPIERE", "query": "triggers", "rows": 0, "cmd": "database test", "t_ms": 767}
-{"stage": "oracle.catalog", "msg": "read DBA_SYNONYMS", "ms": 1, "owner": "ADEMPIERE", "query": "synonyms", "rows": 0, "cmd": "database test", "t_ms": 769}
-{"stage": "oracle.catalog", "msg": "read DBA_TAB_COMMENTS", "ms": 2, "owner": "ADEMPIERE", "query": "table_comments", "rows": 42, "cmd": "database test", "t_ms": 771}
-{"stage": "oracle.catalog", "msg": "read DBA_COL_COMMENTS", "ms": 18, "owner": "ADEMPIERE", "query": "column_comments", "rows": 111, "cmd": "database test", "t_ms": 790}
-{"stage": "oracle.catalog", "msg": "read DBA_TAB_COL_STATISTICS", "ms": 162, "owner": "ADEMPIERE", "query": "column_statistics", "rows": 18527, "cmd": "database test", "t_ms": 952}
-{"stage": "oracle.catalog", "msg": "reconciled against DBA_OBJECTS", "kinds": 13, "mismatches": 0, "objects": 10613, "owner": "ADEMPIERE", "cmd": "database test", "t_ms": 1095}
-{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "database test", "t_ms": 13075}
-{"stage": "run", "msg": "finished", "ok": true, "ms": 13075, "warnings": 0, "cmd": "database test", "t_ms": 13075}
-```
-
 **`database test`** — succeeded, from a terminal, 2026-10-26T17:20:47+00:00; model calls: 0.
 
 ```json
@@ -104,6 +79,31 @@ The connectors read the sources as they are: files from the repositories, the li
 {"stage": "oracle.catalog", "msg": "reconciled against DBA_OBJECTS", "kinds": 13, "mismatches": 0, "objects": 10613, "owner": "ADEMPIERE", "cmd": "database test", "t_ms": 2635}
 {"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "database test", "t_ms": 15959}
 {"stage": "run", "msg": "finished", "ok": true, "ms": 15960, "warnings": 0, "cmd": "database test", "t_ms": 15960}
+```
+
+**`database test`** — succeeded, from a terminal, 2026-10-26T18:24:08+00:00; model calls: 0.
+
+```json
+{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "database test", "t_ms": 0}
+{"stage": "oracle.catalog", "msg": "read DBA_OBJECTS", "ms": 421, "owner": "ADEMPIERE", "query": "objects", "rows": 3280, "cmd": "database test", "t_ms": 630}
+{"stage": "oracle.catalog", "msg": "read DBA_TABLES", "ms": 86, "owner": "ADEMPIERE", "query": "tables", "rows": 903, "cmd": "database test", "t_ms": 717}
+{"stage": "oracle.catalog", "msg": "read DBA_TAB_COLUMNS", "ms": 360, "owner": "ADEMPIERE", "query": "columns", "rows": 30457, "cmd": "database test", "t_ms": 1077}
+{"stage": "oracle.catalog", "msg": "read DBA_CONSTRAINTS", "ms": 262, "owner": "ADEMPIERE", "query": "constraints", "rows": 18444, "cmd": "database test", "t_ms": 1340}
+{"stage": "oracle.catalog", "msg": "read DBA_CONS_COLUMNS", "ms": 110, "owner": "ADEMPIERE", "query": "constraint_columns", "rows": 18697, "cmd": "database test", "t_ms": 1450}
+{"stage": "oracle.catalog", "msg": "read DBA_INDEXES", "ms": 172, "owner": "ADEMPIERE", "query": "indexes", "rows": 2109, "cmd": "database test", "t_ms": 1622}
+{"stage": "oracle.catalog", "msg": "read DBA_IND_COLUMNS", "ms": 58, "owner": "ADEMPIERE", "query": "index_columns", "rows": 2624, "cmd": "database test", "t_ms": 1681}
+{"stage": "oracle.catalog", "msg": "read DBA_VIEWS", "ms": 35, "owner": "ADEMPIERE", "query": "views", "rows": 160, "cmd": "database test", "t_ms": 1717}
+{"stage": "oracle.catalog", "msg": "read DBA_MVIEWS", "ms": 1, "owner": "ADEMPIERE", "query": "mviews", "rows": 0, "cmd": "database test", "t_ms": 1718}
+{"stage": "oracle.catalog", "msg": "read DBA_SEQUENCES", "ms": 1, "owner": "ADEMPIERE", "query": "sequences", "rows": 0, "cmd": "database test", "t_ms": 1720}
+{"stage": "oracle.catalog", "msg": "read DBA_SOURCE", "ms": 32, "owner": "ADEMPIERE", "query": "source", "rows": 4753, "cmd": "database test", "t_ms": 1752}
+{"stage": "oracle.catalog", "msg": "read DBA_TRIGGERS", "ms": 6, "owner": "ADEMPIERE", "query": "triggers", "rows": 0, "cmd": "database test", "t_ms": 1759}
+{"stage": "oracle.catalog", "msg": "read DBA_SYNONYMS", "ms": 4, "owner": "ADEMPIERE", "query": "synonyms", "rows": 0, "cmd": "database test", "t_ms": 1763}
+{"stage": "oracle.catalog", "msg": "read DBA_TAB_COMMENTS", "ms": 5, "owner": "ADEMPIERE", "query": "table_comments", "rows": 42, "cmd": "database test", "t_ms": 1769}
+{"stage": "oracle.catalog", "msg": "read DBA_COL_COMMENTS", "ms": 23, "owner": "ADEMPIERE", "query": "column_comments", "rows": 111, "cmd": "database test", "t_ms": 1792}
+{"stage": "oracle.catalog", "msg": "read DBA_TAB_COL_STATISTICS", "ms": 226, "owner": "ADEMPIERE", "query": "column_statistics", "rows": 18527, "cmd": "database test", "t_ms": 2019}
+{"stage": "oracle.catalog", "msg": "reconciled against DBA_OBJECTS", "kinds": 13, "mismatches": 0, "objects": 10613, "owner": "ADEMPIERE", "cmd": "database test", "t_ms": 2177}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "database test", "t_ms": 15147}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 15147, "warnings": 0, "cmd": "database test", "t_ms": 15147}
 ```
 
 ## What the operator gets

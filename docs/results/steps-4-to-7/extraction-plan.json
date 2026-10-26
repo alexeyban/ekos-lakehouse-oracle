@@ -1,0 +1,278 @@
+{
+ "changes": [
+  {
+   "at": "2026-10-25T23:38:21Z",
+   "by": "ops-test",
+   "change": "load incrementally",
+   "reason": "raw updates are a one-off upgrade script",
+   "state": "applied",
+   "table": "ADEMPIERE.A_ASSET",
+   "why_stale": null
+  },
+  {
+   "at": "2026-10-25T23:41:11Z",
+   "by": "ops-test",
+   "change": "load in full",
+   "reason": "small dictionary table",
+   "state": "applied",
+   "table": "ADEMPIERE.AD_MESSAGE",
+   "why_stale": null
+  }
+ ],
+ "excluded": [
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_ACCESSLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_ALERTPROCESSORLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_CHANGELOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_LDAPPROCESSORLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_PINSTANCE_LOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_REPLICATION_LOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_SCHEDULERLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.AD_WORKFLOWPROCESSORLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.CM_WEBACCESSLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.C_ACCTPROCESSORLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.IMP_PROCESSORLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_ASSET"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_BANKSTATEMENT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_BPARTNER"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_CONVERSION_RATE"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_ELEMENTVALUE"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_FAJOURNAL"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_FIXEDASSET"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_GLJOURNAL"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_HR_MOVEMENT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_INOUTLINECONFIRM"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_INVENTORY"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_INVOICE"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_MOVEMENT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_ORDER"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_PAYMENT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_PRICELIST"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_PRODUCT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_PRODUCTPLANNING"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.I_REPORTLINE"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.K_INDEXLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.M_STORAGERESERVATIONLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.R_REQUESTPROCESSORLOG"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_1099EXTRACT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_AGING"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_BANKREGISTER"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_BOMLINE"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_BOM_INDENTED"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_CASHFLOW"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_DISTRIBUTIONRUNDETAIL"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_INVENTORYVALUE"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_INVOICEGL"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_MOVECLIENT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_MRP_CRP"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_RECONCILIATION"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_REPLENISH"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_REPORTSTATEMENT"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_SELECTION"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_SELECTION2"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_SELECTION_INFOWINDOW"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_SPOOL"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_TRANSACTION"
+  },
+  {
+   "reason": "out of scope (step 3)",
+   "table": "ADEMPIERE.T_TRIALBALANCE"
+  }
+ ],
+ "proposed": true,
+ "refused": [
+  {
+   "reasons": "MULTIPLYRATE (NUMBER): unconstrained NUMBER whose data uses precision 39, scale 38: more digits than Iceberg's 38 (a stored division result?); DIVIDERATE (NUMBER): unconstrained NUMBER whose data uses precision 40, scale 39: more digits than Iceberg's 38 (a stored division result?)",
+   "table": "ADEMPIERE.C_CONVERSION_RATE"
+  }
+ ],
+ "selected": null,
+ "step3": [
+  {
+   "subject": "scope",
+   "used": "used",
+   "why": "signed off by token:Ann at 2026-10-25T13:39:00.467749826+00:00"
+  },
+  {
+   "subject": "pii",
+   "used": "used",
+   "why": "signed off by token:Ann at 2026-10-25T13:39:31.633818885+00:00"
+  },
+  {
+   "subject": "write-behaviour",
+   "used": "used",
+   "why": "signed off by token:Ann at 2026-10-25T13:40:00.903254444+00:00"
+  }
+ ],
+ "summary": {
+  "approved_at": "2026-10-26T08:46:34Z",
+  "approved_by": "operator",
+  "changes": 2,
+  "digest": "03d5fce4e39fa6f0",
+  "excluded": 53,
+  "full": 134,
+  "incremental_audited": 50,
+  "incremental_every_run": 665,
+  "incremental_other": 0,
+  "masked_columns": 1,
+  "notes": "",
+  "planned_at": "2026-10-26T08:55:48Z",
+  "refused": 1,
+  "stale_changes": 0,
+  "state": "approved"
+ }
+}

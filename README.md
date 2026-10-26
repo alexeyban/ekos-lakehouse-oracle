@@ -1,45 +1,56 @@
-# EKOS on a legacy Oracle estate: iDempiere
+# EKOS on a legacy Oracle estate: iDempiere, end to end
 
-A worked demo of [EKOS](https://github.com/alexeyban/EKOS) — a compiler for enterprise knowledge — on
-[iDempiere](https://github.com/idempiere/idempiere), an open-source ERP with 900 tables, 20 years of migration
-scripts, PL/SQL and a large Java code base, running on Oracle. It follows the seven steps of the
-[EKOS Lakehouse](https://github.com/alexeyban/ekos-lakehouse) operator workflow: analyse the sources, document them,
-have a person review and sign off the source model, describe the marts wanted, approve how each table is loaded,
-build bronze and silver, and build and reconcile the marts.
-
-**The book: [the operator workflow, step by step](book/index.md)** ([PDF](book/demo-book.pdf)) — every step's
-console screen, the run log behind it, what happens behind the screen and what the operator gets. It is generated
-by a script that walks the console (EKOS RFC 0218), so its screenshots, logs and numbers come from the product.
+A complete, measured run of [EKOS](https://github.com/alexeyban/EKOS) — a compiler for enterprise knowledge — and
+[EKOS Lakehouse](https://github.com/alexeyban/ekos-lakehouse) on [iDempiere](https://github.com/idempiere/idempiere), an
+open-source ERP with 903 tables, 20 years of migration scripts, PL/SQL and a large Java code base, running on Oracle.
+An operator takes it through the seven steps of the workflow in a web console: analyse the sources, document them,
+review and sign off the source model, describe the marts wanted, approve how each table is loaded, build bronze and
+silver, and build and reconcile the marts.
 
 **No language model reads the sources.** The one model call in the workflow is step 4's draft of a mart from plain
-words (local Ollama here). Every number below comes from a measured run on one laptop.
+words (a local model), and every term it writes is resolved against the approved model or asked back. Every number
+below comes from a measured run on one 15 GB laptop.
 
-| Step | | State in this demo |
-|---|---|---|
-| 1 | Analyse sources — code, docs site, live Oracle catalog into one ledger, from the console's Sources tab | done (census = compiled) |
-| 2 | Documentation — [**1,060 generated pages**](docs/estate/index.md) | done (in this repository) |
-| 3 | Review and sign-off — six subjects, sign-off bound to a digest | 4 of 6 signed; 195 conflicts and 1 identity match await a person |
-| 4 | Requirements — marts described in words or Markdown, every term resolved against the source model | 4 marts approved |
-| 5 | Extraction — per table: load mode, deletes, masking, with the evidence | plan approved: 715 incremental, 134 full, 1 refused |
-| 6 | Bronze and silver through Dagster | a 165-table subset loaded (not all 849, on a laptop) |
-| 7 | Marts — proposed, merged, built, each measure reconciled with silver | 4 marts reconciled, every total equal |
+| | |
+|---|---|
+| **[The book](book/index.md)** ([PDF](book/demo-book.pdf)) | the seven steps from the console: each screen, the run log behind it, what happens, what the operator gets — generated from the product |
+| **[The wiki](https://github.com/alexeyban/ekos-lakehouse-oracle/wiki)** | the 1,060 documentation pages EKOS generated and published from the console (step 2), and the book |
+| **[The presentation](presentation/index.html)** ([PDF](presentation/ekos-idempiere.pdf)) | 13 slides |
+| **[The results](docs/results/README.md)** | census, run logs, review state, steps 4–7, the release gates ([exit report](docs/results/exit-report.md)) |
+| **[The operator guide](docs/guide/operator-workflow.md)** | every step: commands, settings, what is guaranteed, where things are |
 
-Steps 4–7 were built and run on this testbed; the console's step bar shows them behind step 3, which is not complete.
+![The Sources page: census vs compiled](book/images/01-sources.png)
 
-## Start here
+## The seven steps on this testbed
 
-- **The documentation EKOS generated:** [docs/estate](docs/estate/index.md) — e.g. the
-  [data model](docs/estate/data-model/index.md), [C_ORDER](docs/estate/data-model/c/c_order.md), a
-  [routine](docs/estate/logic/acctbalance.md), the [findings](docs/estate/findings/index.md).
-- **How it was made, step by step:**
-  1. [The testbed](docs/walkthrough/01-testbed.md) — iDempiere 12's seed on Oracle XE in Docker
-  2. [Step 1 — analyse](docs/walkthrough/02-analyse.md)
-  3. [Step 2 — documentation](docs/walkthrough/03-documentation.md)
-  4. [Step 3 — review and sign-off](docs/walkthrough/04-review-and-sign-off.md)
-  5. [Steps 4–7](docs/walkthrough/05-steps-4-to-7.md), and [the book](book/index.md) for all seven
-- **Measurements:** [docs/results](docs/results/README.md) — database census, run logs, review state, a 25-question eval.
+| Step | | Result | State |
+|---|---|---|---|
+| 1 | Analyse sources — code, docs site, live Oracle catalog into one ledger | census = compiled: 903 tables, 160 views, 62 routines | done |
+| 2 | Documentation — generated from the ledger, published to [this wiki](https://github.com/alexeyban/ekos-lakehouse-oracle/wiki) | 1,060 pages | done |
+| 3 | Review and sign-off — six subjects, each sign-off bound to a digest | 4 of 6 signed; 195 conflicts and 1 identity match await a person | partial |
+| 4 | Requirements — marts in words or Markdown, every term resolved | 4 marts approved, nothing invented | behind step 3 |
+| 5 | Extraction — per table: load mode, deletes, masking, with the evidence | 715 incremental, 134 full, 1 refused; approved | behind step 3 |
+| 6 | Bronze and silver — generated SQL, dbt-trino silver, Dagster | a 165-table subset; 3,664 of 3,667 tests pass | behind step 3 |
+| 7 | Marts — proposed, merged, built, each measure reconciled with silver | 4 marts, every total equal | behind step 3 |
 
-![The review in the EKOS console](docs/images/review-pii.png)
+Steps 4–7 were built and run; the console's step bar shows them behind step 3, which is not complete — the gate is
+the product's and was left as it is. Details: [docs/results/steps-4-to-7.md](docs/results/steps-4-to-7.md).
+
+## What is in this repository
+
+| Path | What |
+|---|---|
+| [`book/`](book/) | the demo book (Markdown + PDF), regenerated by [`scripts/demo-book.sh`](scripts/demo-book.sh) |
+| [`docs/estate/`](docs/estate/index.md) | the generated documentation (also on the wiki) — e.g. [C_ORDER](docs/estate/data-model/c/c_order.md), the [findings](docs/estate/findings/index.md) |
+| [`docs/walkthrough/`](docs/walkthrough/01-testbed.md) | how it was made, step by step |
+| [`docs/guide/`](docs/guide/operator-workflow.md) | the operator guide (from EKOS) |
+| [`docs/results/`](docs/results/README.md) | measurements and exports |
+| [`pipeline/`](pipeline/) | **the generated pipeline**: bronze extraction SQL for 849 tables, the dbt-trino project (silver models and tests from the source model, the four gold marts), the Dagster definitions, the mart requirements, the deployed plan (`lakehouse.lock.json`) and its [history](pipeline/HISTORY.md) |
+| [`project/ekos.toml`](project/ekos.toml) | the EKOS project: sources, the database, the lakehouse settings |
+| [`src/EKOS`](https://github.com/alexeyban/EKOS/tree/525c782), [`src/ekos-lakehouse`](https://github.com/alexeyban/ekos-lakehouse/tree/7a6eb94) | **the code**, as submodules at the exact commits this ran |
+| [`testbed/`](testbed/), [`stack/`](stack/README.md) | **the containers**: Oracle XE with the iDempiere seed; the lakehouse stack; the project's Dagster |
+| [`scripts/`](scripts/tours/README.md) | the browser tours that drove each step, the book and docs generators |
+| [`presentation/`](presentation/) | the slides |
 
 ## What EKOS found, in numbers
 
@@ -52,21 +63,28 @@ Steps 4–7 were built and run on this testbed; the console's step bar shows the
 | write behaviour | per table: how rows are updated and deleted, and whether the change log records it |
 | pipeline | build 16 s · recover 4 min 22 s · resolve 11 s · compile 32 s · commit 8 min 15 s · 0 model calls |
 | documentation | 1,060 pages in 26 s |
+| row values in the ledger | 228 text values sampled from 36 business columns: 0 in anything read from the database |
 
-## What is deliberately not here
-
-No data values (profiles contribute counts only), no text from the iDempiere documentation site (it has no licence
-file), no ledger and no credentials. See [NOTICE.md](NOTICE.md).
-
-## Reproduce
+## Run it yourself
 
 ```bash
-docker compose -p ekos -f testbed/docker-compose.oracle.yml up -d
-testbed/idempiere-oracle.sh
-export EKOS_ORACLE_PASSWORD=ekos-ro-local-only
-# build EKOS with --features oracle, create the project from project/ekos.toml, run the pipeline, then:
-scripts/regenerate-docs.sh idemdocs
+git clone --recurse-submodules https://github.com/alexeyban/ekos-lakehouse-oracle
 ```
 
-Licence: GPL-2.0 (the generated documentation derives from iDempiere's GPL-2.0 code); files copied from EKOS keep
-their MIT notice — see [NOTICE.md](NOTICE.md).
+then [`stack/README.md`](stack/README.md): the Oracle testbed, the lakehouse stack, the binary, the project, the
+console, Dagster — in that order.
+
+## Not done, honestly
+
+- A complete step-3 sign-off: 195 code ↔ database conflicts and one identity match are a person's decisions.
+- The full 849-table load: a 165-table subset was loaded on this laptop; the rest of the pipeline is generated and
+  ready ([`pipeline/`](pipeline/)).
+- Cascade, keyless and permissions-loss deletes planted on the testbed (designed and classified; single, mass and purge
+  deletes were run).
+- CDC with Debezium: optional in the plan, built only when an operator asks.
+
+## Licence and what is deliberately not here
+
+GPL-2.0 (the generated documentation and pipeline derive from iDempiere's GPL-2.0 code and schema); files copied from
+EKOS keep their MIT notice — see [NOTICE.md](NOTICE.md). No data values (profiles contribute counts only), no text
+from the iDempiere documentation site (it has no licence file), no ledger and no credentials.

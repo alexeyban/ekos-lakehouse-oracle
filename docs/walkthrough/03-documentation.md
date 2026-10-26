@@ -30,6 +30,10 @@ Example: [C_ORDER](../estate/data-model/c/c_order.md).
 **Scope comes from the review** (step 3): a table gets a page only when it is in scope — decided, or proposed by the
 class rules (`T_*` transient, `I_*` import, … are out by default).
 
-The same folder publishes to a GitHub wiki, Confluence or an Azure DevOps wiki with the publishers in
-[ekos-lakehouse](https://github.com/alexeyban/ekos-lakehouse/tree/main/tools/lakehouse-docs) (`--dry-run` first);
-GitHub also renders it right here, Mermaid diagrams included.
+**Published from the console** (EKOS RFC 0230): the project names its store in `[extensions.lakehouse.docs]`
+(here: this repository's wiki), and the **Documentation** page runs **Generate**, **Preview publish** and **Publish**.
+The result is **[this repository's wiki](https://github.com/alexeyban/ekos-lakehouse-oracle/wiki)** — 1,060 pages and
+the sidebar, pushed by `lakehouse docs publish` on 2026-10-26; step 2 then reads *done*. The same folder can go to
+Confluence or an Azure DevOps wiki; GitHub also renders it right here, Mermaid diagrams included.
+
+![The Documentation page](../../book/images/02-docs.png)

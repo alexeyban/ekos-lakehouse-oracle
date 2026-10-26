@@ -1,0 +1,85 @@
+{
+    "marts": [
+        {
+            "approved_at": "2026-10-26T09:39:03Z",
+            "approved_by": "operator",
+            "mart": "category_region_sales",
+            "needs": 7,
+            "questions": 0,
+            "source": "text",
+            "state": "approved",
+            "terms": 6
+        },
+        {
+            "approved_at": "2026-10-26T11:17:42Z",
+            "approved_by": "operator",
+            "mart": "invoices_by_month",
+            "needs": 1,
+            "questions": 0,
+            "source": "file",
+            "state": "approved",
+            "terms": 5
+        },
+        {
+            "approved_at": "2026-10-26T09:54:13Z",
+            "approved_by": "static:write",
+            "mart": "orders_per_customer",
+            "needs": 2,
+            "questions": 0,
+            "source": "text",
+            "state": "approved",
+            "terms": 5
+        },
+        {
+            "approved_at": "2026-10-26T09:30:24Z",
+            "approved_by": "operator",
+            "mart": "sales_by_month",
+            "needs": 2,
+            "questions": 0,
+            "source": "file",
+            "state": "approved",
+            "terms": 6
+        }
+    ],
+    "needs": [
+        "C_BPARTNER",
+        "C_BPARTNER_LOCATION",
+        "C_INVOICE",
+        "C_LOCATION",
+        "C_ORDER",
+        "C_ORDERLINE",
+        "C_REGION",
+        "M_PRODUCT",
+        "M_PRODUCT_CATEGORY"
+    ],
+    "needs_rows": [
+        {
+            "table": "C_BPARTNER"
+        },
+        {
+            "table": "C_BPARTNER_LOCATION"
+        },
+        {
+            "table": "C_INVOICE"
+        },
+        {
+            "table": "C_LOCATION"
+        },
+        {
+            "table": "C_ORDER"
+        },
+        {
+            "table": "C_ORDERLINE"
+        },
+        {
+            "table": "C_REGION"
+        },
+        {
+            "table": "M_PRODUCT"
+        },
+        {
+            "table": "M_PRODUCT_CATEGORY"
+        }
+    ],
+    "selected": null
+}

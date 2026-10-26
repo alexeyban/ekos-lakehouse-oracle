@@ -1,4 +1,0 @@
-{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse docs publish", "t_ms": 0}
-{"stage": "docs", "msg": "dry run", "ok": true, "pages": 1060, "target": "github", "cmd": "lakehouse docs publish", "t_ms": 1605}
-{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs publish", "t_ms": 1605}
-{"stage": "run", "msg": "finished", "ok": true, "ms": 1605, "warnings": 0, "cmd": "lakehouse docs publish", "t_ms": 1605}

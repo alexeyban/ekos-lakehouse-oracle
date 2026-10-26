@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EKOS on iDempiere</title>
+<style>
+  :root { --ink:#17202b; --muted:#5b6675; --accent:#6d28d9; --ok:#0f7b52; --warn:#a15c07; --bad:#b42318;
+          --bg:#ffffff; --panel:#f5f3fb; --line:#e3e0ee; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; background:#1b1f27; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--ink); }
+  .slide { width:1280px; height:720px; margin:24px auto; background:var(--bg); position:relative; overflow:hidden;
+           padding:56px 72px; display:none; flex-direction:column; box-shadow:0 8px 30px rgba(0,0,0,.35); }
+  .slide.on { display:flex; }
+  h1 { font-size:46px; line-height:1.1; margin:0 0 18px; letter-spacing:-.5px; }
+  h2 { font-size:34px; margin:0 0 22px; letter-spacing:-.3px; }
+  p, li { font-size:21px; line-height:1.45; color:var(--ink); }
+  .lead { font-size:24px; color:var(--muted); max-width:1000px; }
+  .kicker { font-size:15px; text-transform:uppercase; letter-spacing:2px; color:var(--accent); font-weight:600; margin-bottom:10px; }
+  .foot { position:absolute; left:72px; right:72px; bottom:26px; display:flex; justify-content:space-between; font-size:14px; color:var(--muted); }
+  .cols { display:grid; grid-template-columns: 1fr 1.25fr; gap:36px; align-items:start; flex:1; min-height:0; }
+  .cols img { width:100%; max-height:500px; object-fit:cover; object-position:top; border:1px solid var(--line); border-radius:8px; }
+  table { border-collapse:collapse; font-size:18px; width:100%; }
+  th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); }
+  th { color:var(--muted); font-weight:600; font-size:15px; text-transform:uppercase; letter-spacing:.5px; }
+  .num { font-variant-numeric: tabular-nums; }
+  .chip { display:inline-block; padding:2px 10px; border-radius:999px; font-size:14px; font-weight:600; border:1px solid currentColor; }
+  .done { color:var(--ok); } .partial { color:var(--warn); } .blocked { color:var(--bad); }
+  .stats { display:grid; grid-template-columns: repeat(4, 1fr); gap:18px; margin-top:12px; }
+  .stat { background:var(--panel); border-radius:10px; padding:16px 18px; }
+  .stat b { display:block; font-size:34px; color:var(--accent); font-variant-numeric: tabular-nums; }
+  .stat span { font-size:16px; color:var(--muted); }
+  ul { margin:0; padding-left:24px; } li { margin:6px 0; }
+  .title { justify-content:center; background:linear-gradient(135deg,#f5f3fb 0%,#fff 60%); }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:.9em; background:var(--panel); padding:1px 6px; border-radius:4px; }
+  .nav { position:fixed; bottom:12px; right:16px; color:#aab; font-size:13px; }
+  @media print {
+    @page { size: 1280px 720px; margin:0; }
+    html, body { background:#fff; }
+    .slide { display:flex !important; margin:0; box-shadow:none; page-break-after:always; }
+    .nav { display:none; }
+  }
+  @media (max-width: 1320px) { .slide { transform-origin: top center; } }
+</style>
+</head>
+<body>
+
+<section class="slide title">
+  <div class="kicker">EKOS · EKOS Lakehouse · iDempiere on Oracle</div>
+  <h1>From a legacy estate nobody fully knows<br>to documented, reviewed, reconciled marts</h1>
+  <p class="lead">A compiler for enterprise knowledge read iDempiere's code, documentation and live Oracle catalog;
+  an operator then took it through seven steps in a web console — every number here from a measured run.</p>
+  <div class="foot"><span>github.com/alexeyban/ekos-lakehouse-oracle</span><span>2026-10-26</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The estate</div>
+  <h2>iDempiere 12: a real ERP, twenty years old</h2>
+  <div class="stats">
+    <div class="stat"><b>903</b><span>tables, 160 views, 62 routines</span></div>
+    <div class="stat"><b>3,686</b><span>foreign keys · 12,958 check constraints</span></div>
+    <div class="stat"><b>4,820</b><span>Java types · 763 generated model classes</span></div>
+    <div class="stat"><b>3,356</b><span>migration scripts → 31,620 schema changes</span></div>
+  </div>
+  <p style="margin-top:28px">The usual problem: the knowledge is spread over code, scripts, a docs site and the database, and the
+  people who knew why are gone. Before building a lakehouse on it, someone has to say what it is.</p>
+  <div class="foot"><span>Oracle XE 21c with the iDempiere 12 seed, in Docker</span><span>2</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The approach</div>
+  <h2>Compile the knowledge, then let a person decide</h2>
+  <ul>
+    <li><b>EKOS</b> observes sources without interpreting them, compiles them through deterministic passes and keeps every
+      conclusion with its evidence in an append-only ledger.</li>
+    <li><b>No language model reads the sources.</b> The one model call of the workflow drafts a mart from plain words —
+      and every term it writes is resolved against the approved model, or asked back.</li>
+    <li><b>Decisions are a person's, and bound to what was shown:</b> a sign-off carries a digest; when a fact changes,
+      the sign-off turns stale by itself.</li>
+    <li><b>EKOS Lakehouse</b> turns the approved model into an Iceberg lakehouse: extraction, dbt silver and gold, Dagster.</li>
+  </ul>
+  <div class="foot"><span>EKOS (Rust) · EKOS Lakehouse (an EKOS extension) · both open source</span><span>3</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The workflow</div>
+  <h2>Seven steps, all from the console</h2>
+  <table>
+    <tr><th>Step</th><th>The operator</th><th>On this testbed</th><th>State</th></tr>
+    <tr><td>1 Analyse</td><td>adds sources, clicks Init &amp; compile</td><td class="num">census = compiled (903 / 160 / 62)</td><td><span class="chip done">done</span></td></tr>
+    <tr><td>2 Documentation</td><td>Generate, Preview, Publish</td><td class="num">1,060 pages on this repo's wiki</td><td><span class="chip done">done</span></td></tr>
+    <tr><td>3 Review</td><td>decides, signs each subject off</td><td class="num">4 of 6 signed; 195 conflicts for a person</td><td><span class="chip partial">partial</span></td></tr>
+    <tr><td>4 Requirements</td><td>describes marts in words</td><td class="num">4 approved, nothing invented</td><td><span class="chip blocked">behind 3</span></td></tr>
+    <tr><td>5 Extraction</td><td>reviews the plan per table, approves</td><td class="num">715 incremental · 134 full · 1 refused</td><td><span class="chip blocked">behind 3</span></td></tr>
+    <tr><td>6 Bronze + silver</td><td>generates, loads</td><td class="num">165-table subset · 3,664 / 3,667 tests</td><td><span class="chip blocked">behind 3</span></td></tr>
+    <tr><td>7 Marts</td><td>Propose, Merge, Build, Reconcile</td><td class="num">4 marts, every total equal to silver's</td><td><span class="chip blocked">behind 3</span></td></tr>
+  </table>
+  <p style="font-size:17px;color:var(--muted);margin-top:14px">"Behind 3": built and run, shown blocked because step 3 is not fully signed — the gate is the product's, not bypassed.</p>
+  <div class="foot"><span>Model calls in every recorded run of steps 1, 2, 5 and 7: 0</span><span>4</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Step 1 — analyse</div>
+  <h2>Code, docs and the live catalog in one ledger</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li>Java declarations and the application model; Oracle SQL and PL/SQL; migration scripts as schema history;
+          docs with their tickets; the live catalog read inside a read-only transaction.</li>
+        <li>446 places where code and database disagree, each with its evidence.</li>
+        <li>Per table: how rows are updated and deleted.</li>
+        <li>Pipeline: build 16 s · recover 4 min · commit 8 min · <b>0 model calls</b>.</li>
+      </ul>
+    </div>
+    <img src="../book/images/01-sources.png" alt="The Sources page with census vs compiled">
+  </div>
+  <div class="foot"><span>Census reconciled against DBA_OBJECTS: 10,613 objects, 0 mismatches</span><span>5</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Step 2 — documentation</div>
+  <h2>1,060 wiki pages, written from the ledger alone</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li>The data model by area with ER diagrams, a page per table and routine, schema history, findings, a glossary.</li>
+        <li><b>No data value</b> reaches a page; text only from sources with a known licence.</li>
+        <li>Published to this repository's GitHub wiki from the <b>Documentation</b> page — preview first, then publish.</li>
+      </ul>
+    </div>
+    <img src="../book/images/02-docs.png" alt="The Documentation page">
+  </div>
+  <div class="foot"><span>github.com/alexeyban/ekos-lakehouse-oracle/wiki</span><span>6</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Step 3 — review and sign-off</div>
+  <h2>A person signs what they were shown</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li>Six subjects: scope, PII, write behaviour, glossary, conflicts, identity.</li>
+        <li>A sign-off is bound to a digest. Adding a column in Oracle turned the PII sign-off stale, naming the column.</li>
+        <li>4 of 6 signed; 195 code ↔ database conflicts wait for a person — the software shows them, it does not decide them.</li>
+      </ul>
+    </div>
+    <img src="../book/images/03-conflicts.png" alt="The review of conflicts">
+  </div>
+  <div class="foot"><span>Steps 4–7 stay behind this gate</span><span>7</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Step 4 — requirements</div>
+  <h2>The one model call, and nothing invented</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li>"Number of completed sales orders per customer and month": local <code>llama3</code> drafts the mart's header.</li>
+        <li>EKOS resolves every term against the approved model — columns, join paths along declared keys, filters.</li>
+        <li>What does not resolve is a question <b>for the operator</b>, never fed back to the model.</li>
+        <li>Approval records the requirement's digest.</li>
+      </ul>
+    </div>
+    <img src="../book/images/04-requirements.png" alt="The Requirements page">
+  </div>
+  <div class="foot"><span>4 requirements approved; one model draft needed nine answers</span><span>8</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Step 5 — extraction</div>
+  <h2>How each table lands, with the evidence</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li>Incremental on <code>UPDATED</code> where the code keeps it; full where some code skips it.</li>
+        <li>Deletes found by a bucketed key diff, with a mass-delete guard; purged rows kept.</li>
+        <li>Step 3's scope and PII masks applied; a number no Iceberg type can hold is refused, never rounded.</li>
+        <li>The operator changes what they disagree with, with a reason, and approves the plan's digest.</li>
+      </ul>
+    </div>
+    <img src="../book/images/05-extraction.png" alt="The Extraction page">
+  </div>
+  <div class="foot"><span>715 incremental · 134 full · 1 refused · 53 out of scope · 1 masked column</span><span>9</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Steps 6 and 7 — the lakehouse</div>
+  <h2>Silver from the source model, marts reconciled</h2>
+  <div class="cols">
+    <div>
+      <p>Generated extraction SQL, dbt-trino silver with tests from the application's own code lists and checks,
+      Dagster. A 165-table subset: <b>3,664 of 3,667 tests pass</b>.</p>
+      <table>
+        <tr><th>Mart · measure</th><th>Mart</th><th>Silver</th></tr>
+        <tr><td>sales_by_month · total</td><td class="num">379.90</td><td class="num">379.90</td></tr>
+        <tr><td>sales_by_month · orders</td><td class="num">3</td><td class="num">3</td></tr>
+        <tr><td>category_region_sales · sales</td><td class="num">358.40</td><td class="num">358.40</td></tr>
+        <tr><td>orders_per_customer · count of orders</td><td class="num">7</td><td class="num">7</td></tr>
+        <tr><td>invoices_by_month · invoiced</td><td class="num">541.02</td><td class="num">541.02</td></tr>
+        <tr><td>invoices_by_month · invoices</td><td class="num">4</td><td class="num">4</td></tr>
+      </table>
+    </div>
+    <img src="../book/images/07-marts.png" alt="The Marts page">
+  </div>
+  <div class="foot"><span>Propose (nothing invented) · Merge (the approval) · Build (Dagster) · Reconcile</span><span>10</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">What is guaranteed</div>
+  <h2>Measured, not promised</h2>
+  <ul>
+    <li><b>No row values in the ledger:</b> 228 text values sampled from 36 business columns — 0 in anything read from the database.</li>
+    <li><b>No model call outside step 4:</b> every recorded run log ends with its count — 0 in steps 1, 2, 5 and 7.</li>
+    <li><b>Every number traceable:</b> run logs per command; the pipeline is a git repository; approvals are ledger facts.</li>
+    <li><b>The plan's release gates:</b> 8 met, 2 partial, 2 blockers — open conflicts for a person, and three delete
+      scenarios still to plant on the testbed.</li>
+  </ul>
+  <div class="foot"><span>docs/results/exit-report.md</span><span>11</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Not done, honestly</div>
+  <h2>What this demo does not show</h2>
+  <ul>
+    <li>A complete step-3 sign-off: 195 conflicts and one identity match are a person's work.</li>
+    <li>The full 849-table load: a 15 GB laptop ran a 165-table subset.</li>
+    <li>Cascade, keyless and permissions-loss deletes on the testbed (designed and classified, not planted).</li>
+    <li>CDC with Debezium: optional, built only when an operator asks for it.</li>
+  </ul>
+  <div class="foot"><span>Tracked in EKOS's TODO</span><span>12</span></div>
+</section>
+
+<section class="slide title">
+  <div class="kicker">Everything is here</div>
+  <h1>github.com/alexeyban/ekos-lakehouse-oracle</h1>
+  <ul>
+    <li><b>book/</b> — the seven steps, generated from the console (PDF included)</li>
+    <li><b>wiki</b> — the 1,060 documentation pages and the book</li>
+    <li><b>pipeline/</b> — the generated bronze SQL, dbt silver and gold, Dagster</li>
+    <li><b>src/</b> — EKOS and EKOS Lakehouse at the exact commits · <b>stack/</b>, <b>testbed/</b> — the containers</li>
+  </ul>
+  <div class="foot"><span>EKOS: github.com/alexeyban/EKOS · EKOS Lakehouse: github.com/alexeyban/ekos-lakehouse</span><span>13</span></div>
+</section>
+
+<div class="nav">← → to move · P to print</div>
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = Math.max(0, Math.min(slides.length - 1, parseInt(location.hash.slice(1) || '1', 10) - 1));
+  const show = () => { slides.forEach((s, k) => s.classList.toggle('on', k === i)); history.replaceState(null, '', '#' + (i + 1)); };
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { i = Math.min(slides.length - 1, i + 1); show(); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { i = Math.max(0, i - 1); show(); }
+    if (e.key === 'p' || e.key === 'P') window.print();
+  });
+  document.addEventListener('click', (e) => { if (e.target.closest('a')) return; i = (i + 1) % slides.length; show(); });
+  show();
+</script>
+</body>
+</html>

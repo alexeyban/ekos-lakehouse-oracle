@@ -28,7 +28,7 @@ sign-offs and the subset load ran before EKOS recorded a log for them (RFC 0218)
 | Step | State | Model calls in the quoted runs |
 |---|---|---|
 | [1 Analyse sources](step-1.md) | done | 0 |
-| [2 Documentation](step-2.md) | partial | 0 |
+| [2 Documentation](step-2.md) | done | 0 |
 | [3 Review and sign-off](step-3.md) | partial | — |
 | [4 Requirements](step-4.md) | blocked | 0 |
 | [5 Extraction and landing](step-5.md) | blocked | 0 |
@@ -36,4 +36,4 @@ sign-offs and the subset load ran before EKOS recorded a log for them (RFC 0218)
 | [7 Marts](step-7.md) | blocked | 0 |
 
 
-Captured 2026-10-26T17:22:29+00:00 from the console at workspace `idemdocs` (ekos-lakehouse 0.1.1 (EKOS 1.1.0)). Screenshots, run logs and numbers are regenerated on every capture; only the marked sections are written by a person. Local paths and account names are shortened in the text, the logs and the screenshots.
+Captured 2026-10-26T18:25:19+00:00 from the console at workspace `idemdocs` (ekos-lakehouse 0.1.1 (EKOS 1.1.0)). Screenshots, run logs and numbers are regenerated on every capture; only the marked sections are written by a person. Local paths and account names are shortened in the text, the logs and the screenshots.
