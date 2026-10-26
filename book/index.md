@@ -36,4 +36,4 @@ sign-offs and the subset load ran before EKOS recorded a log for them (RFC 0218)
 | [7 Marts](step-7.md) | blocked | 0 |
 
 
-Captured 2026-10-26T14:12:49+00:00 from the console at workspace `idemdocs` (ekos-lakehouse 0.1.1 (EKOS 1.1.0)). Screenshots, run logs and numbers are regenerated on every capture; only the marked sections are written by a person. Local paths and account names are shortened in the text, the logs and the screenshots.
+Captured 2026-10-26T17:22:29+00:00 from the console at workspace `idemdocs` (ekos-lakehouse 0.1.1 (EKOS 1.1.0)). Screenshots, run logs and numbers are regenerated on every capture; only the marked sections are written by a person. Local paths and account names are shortened in the text, the logs and the screenshots.

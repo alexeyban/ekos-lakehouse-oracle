@@ -1,0 +1,4 @@
+{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse docs generate", "t_ms": 0}
+{"stage": "docs", "msg": "estate pages written", "at": "2026-10-26T17:19:16Z", "committed_at": "2026-10-25 16:56 UTC", "output": "~/.ekos/data/default/idemdocs/docs/estate", "pages": 1060, "removed": 0, "unchanged": 1060, "written": 0, "cmd": "lakehouse docs generate", "t_ms": 25468}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse docs generate", "t_ms": 26701}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 26701, "warnings": 0, "cmd": "lakehouse docs generate", "t_ms": 26701}
