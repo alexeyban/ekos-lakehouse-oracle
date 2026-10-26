@@ -1,0 +1,6 @@
+{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "compile", "t_ms": 0}
+{"stage": "pass", "msg": "slow", "ms": 14022, "pass": "semantic-compiler", "cmd": "compile", "t_ms": 19990}
+{"stage": "pass", "msg": "passes", "cached": 0, "failed": 0, "ms": 14032, "ran": 1, "cmd": "compile", "t_ms": 19994}
+{"stage": "semantic.compile", "msg": "model written", "objects": 144073, "relationships": 218326, "cmd": "compile", "t_ms": 21443}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "compile", "t_ms": 33593}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 33593, "warnings": 134048, "cmd": "compile", "t_ms": 33593}

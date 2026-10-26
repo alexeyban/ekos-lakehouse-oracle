@@ -2,18 +2,29 @@
 
 A worked demo of [EKOS](https://github.com/alexeyban/EKOS) — a compiler for enterprise knowledge — on
 [iDempiere](https://github.com/idempiere/idempiere), an open-source ERP with 900 tables, 20 years of migration
-scripts, PL/SQL and a large Java code base, running on Oracle. It covers the first three steps of the
+scripts, PL/SQL and a large Java code base, running on Oracle. It follows the seven steps of the
 [EKOS Lakehouse](https://github.com/alexeyban/ekos-lakehouse) operator workflow: analyse the sources, document them,
-and have a person review and sign off the source model before anything is built on it.
+have a person review and sign off the source model, describe the marts wanted, approve how each table is loaded,
+build bronze and silver, and build and reconcile the marts.
 
-**No language model was used in any of it.** Every number below comes from a measured run on one laptop.
+**The book: [the operator workflow, step by step](book/index.md)** ([PDF](book/demo-book.pdf)) — every step's
+console screen, the run log behind it, what happens behind the screen and what the operator gets. It is generated
+by a script that walks the console (EKOS RFC 0218), so its screenshots, logs and numbers come from the product.
+
+**No language model reads the sources.** The one model call in the workflow is step 4's draft of a mart from plain
+words (local Ollama here). Every number below comes from a measured run on one laptop.
 
 | Step | | State in this demo |
 |---|---|---|
 | 1 | Analyse sources — code, docs site, live Oracle catalog into one ledger, from the console's Sources tab | done (census = compiled) |
 | 2 | Documentation — [**1,060 generated pages**](docs/estate/index.md) | done (in this repository) |
 | 3 | Review and sign-off — six subjects, sign-off bound to a digest | 4 of 6 signed; 195 conflicts and 1 identity match await a person |
-| 4–7 | Requirements, extraction, bronze/silver, marts | blocked until step 3 is complete |
+| 4 | Requirements — marts described in words or Markdown, every term resolved against the source model | 4 marts approved |
+| 5 | Extraction — per table: load mode, deletes, masking, with the evidence | plan approved: 715 incremental, 134 full, 1 refused |
+| 6 | Bronze and silver through Dagster | a 165-table subset loaded (not all 849, on a laptop) |
+| 7 | Marts — proposed, merged, built, each measure reconciled with silver | 4 marts reconciled, every total equal |
+
+Steps 4–7 were built and run on this testbed; the console's step bar shows them behind step 3, which is not complete.
 
 ## Start here
 
@@ -25,7 +36,7 @@ and have a person review and sign off the source model before anything is built 
   2. [Step 1 — analyse](docs/walkthrough/02-analyse.md)
   3. [Step 2 — documentation](docs/walkthrough/03-documentation.md)
   4. [Step 3 — review and sign-off](docs/walkthrough/04-review-and-sign-off.md)
-  5. [Steps 4–7](docs/walkthrough/05-steps-4-to-7.md)
+  5. [Steps 4–7](docs/walkthrough/05-steps-4-to-7.md), and [the book](book/index.md) for all seven
 - **Measurements:** [docs/results](docs/results/README.md) — database census, run logs, review state, a 25-question eval.
 
 ![The review in the EKOS console](docs/images/review-pii.png)

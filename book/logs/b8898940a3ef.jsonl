@@ -1,0 +1,4 @@
+{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse extraction change", "t_ms": 0}
+{"stage": "extraction", "msg": "changes undone", "removed": 1, "table": "ADEMPIERE.C_BPARTNER", "cmd": "lakehouse extraction change", "t_ms": 53}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse extraction change", "t_ms": 64}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 64, "warnings": 0, "cmd": "lakehouse extraction change", "t_ms": 64}

@@ -1,0 +1,5 @@
+{"stage": "run", "msg": "started", "version": "1.1.0", "cmd": "lakehouse marts reconcile", "t_ms": 0}
+{"stage": "marts", "msg": "reconciled", "equal": true, "mart": "sales_by_month", "mart_total": "379.90", "measure": "total", "silver_total": "379.90", "cmd": "lakehouse marts reconcile", "t_ms": 3035}
+{"stage": "marts", "msg": "reconciled", "equal": true, "mart": "sales_by_month", "mart_total": "3", "measure": "orders", "silver_total": "3", "cmd": "lakehouse marts reconcile", "t_ms": 3035}
+{"stage": "llm", "msg": "calls", "count": 0, "cache_hits": 0, "embeddings": 0, "cmd": "lakehouse marts reconcile", "t_ms": 3553}
+{"stage": "run", "msg": "finished", "ok": true, "ms": 3553, "warnings": 0, "cmd": "lakehouse marts reconcile", "t_ms": 3553}
