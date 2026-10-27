@@ -13,7 +13,7 @@ below comes from a measured run on one 15 GB laptop.
 
 | | |
 |---|---|
-| **[The video](video/README.md)** ([watch](https://github.com/alexeyban/ekos-lakehouse-oracle/releases/tag/video-2026-10-27), 7:52) | a second project from analysis to three reconciled gold marts, narrated, with every console screen, the source / ER / lineage diagrams, a recording runbook and the run log |
+| **[The video](video/README.md)** ([watch](https://youtu.be/pnGLymT6JH0), 7:52) | a second project from analysis to three reconciled gold marts, narrated, with every console screen, the source / ER / lineage diagrams, a recording runbook and the run log |
 | **[The book](book/index.md)** ([PDF](book/demo-book.pdf)) | the seven steps from the console: each screen, the run log behind it, what happens, what the operator gets — generated from the product |
 | **[The wiki](https://github.com/alexeyban/ekos-lakehouse-oracle/wiki)** | the 1,060 documentation pages EKOS generated and published from the console (step 2), and the book |
 | **[The presentation](presentation/index.html)** ([PDF](presentation/ekos-idempiere.pdf)) | 13 slides |
